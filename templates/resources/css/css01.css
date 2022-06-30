@@ -1,0 +1,102 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+#header1 {
+    background-color: #F7F7F7;
+}
+
+#header1_munu {
+    width: 1200px;
+    height: 40px;
+    line-height: 40px;
+    margin: auto;
+    background-color: #F7F7F7;
+    text-align: right;
+    cursor: pointer;
+}
+
+#header1 span {
+    width: 10px;
+    margin: 10px;
+    cursor: pointer;
+    color: #777777;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 10;
+}
+
+#header2 {
+    display: flex;
+    width: 1200px;
+    height: 60px;
+    margin: auto;
+    background-color: white;
+    font-size: 20;
+    color: black;
+    text-align: center; 
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#title {
+    display: flex;
+    margin: auto;
+    margin-left: 0px;
+    width: 300px;
+    height: 40px;
+    line-height: 40px;
+}
+
+#header2_menu {
+    display: flex;
+    margin-right: 0px;
+    width: 900px;
+    line-height: 40px;
+}
+
+#header2_menu > span {
+    display: flex;
+    margin: auto;
+    cursor: pointer;
+    line-height: 40px;
+    font-weight: bold;
+}
+ 
+#header3 {
+    width: 1200px;
+    height: 100px;
+    margin: auto;
+    text-align: center;
+}
+
+#header3 > span {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    margin: auto;
+    cursor: pointer;
+}
+
+#header3 > input {
+    transform: scale(2)
+}
+
+
+
+#bodyimage {
+    width: 1200px;
+    height: 400px;
+}
+
+#footer {
+    height: 150px;
+    background-color: #F7F7F7;
+}
+#innerfooter {
+    margin: auto;
+    width: 1200px;
+    color: gray;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 10px;
+}
+
