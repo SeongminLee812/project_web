@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CS 공개강좌 분석 포털</title>
-
-    <link rel="stylesheet" href="resources/css/css01.css" type="text/css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/css01.css' %}" type="text/css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,14 +38,14 @@
         <div id="header3">
             <span id="search">
                 <input type="search" placeholder="강좌 검색 키워드 입력">
-                <img src="resources/image/ic_search.png" alt="검색이미지">
+                <img src="{% static 'image/ic_search.png' %}" alt="검색이미지">
             </span>
         </div>
     </div>
 
     <div id="body">
         <span id="bodyimage">
-            <img src="resources/image/bodyimage.jpg" alt="bodyimage" max-width=1200px; height=auto;>
+            <img src="{% static 'image/bodyimage.jpg' %}" alt="bodyimage" max-width=1200px; height=auto;>
         </span>
         </div>
     </div>
