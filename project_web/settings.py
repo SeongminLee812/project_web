@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from . import mysettings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(%e0tlf#ja5t15b(#b3uee@%ni!of3c!ow$+8y4r^r7)^6dx0e'
+# SECRET_KEY = 'django-insecure-(%e0tlf#ja5t15b(#b3uee@%ni!of3c!ow$+8y4r^r7)^6dx0e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,6 +78,7 @@ WSGI_APPLICATION = 'project_web.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -87,6 +89,10 @@ DATABASES = {
         'PORT' : '3306',
     }
 }
+'''
+DATABASES = mysettings.DATABASES
+SECRET_KEY = mysettings.SECRET_KEY
+
 
 
 # Password validation

@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div>
@@ -27,9 +28,9 @@
                 <h2>CS 공개강좌 분석 포털</h2>
             </span>
             <span id="header2_menu">
-                <span><b>CS in K-MOOC</b></span>
-                <span>CS in KOCW</span>
-                <span>CS in edwith</span>
+                <span onclick="location.href='/kmooc/'">CS in K-MOOC</span>
+                <span onclick="location.href='/kocw/'">CS in KOCW</span>
+                <span onclick="location.href='/edwith/'">CS in edwith</span>
                 <span>커뮤니티 게시판</span>
             </span>
 
@@ -43,27 +44,8 @@
     </div>
 
     <div id="body">
-        <span><h1>여기수정하기</h1><br><br><br><br><br><br><br><br><br><br><br>
-            {% for MoocAll in MoocAllList%}
-            <div> {{ MoocAll.num }} </div>
-            <div> {{ MoocAll.name }} </div>
-            <div> {{ MoocAll.short_description }} </div>
-            <div> {{ MoocAll.teachers }} </div>
-            {% endfor %}
-<!--        <iframe id="inlineFrameExample"-->
-<!--            title="Inline Frame Example"-->
-<!--            width="800"-->
-<!--            height="600"-->
-<!--            src="{% static 'edwith_student_num_visual_0630_세원.html'%}">-->
-<!--        </iframe>-->
-<!--        </span>-->
-<!--        <span>-->
-<!--            <iframe id="inlineFrameExample"-->
-<!--            title="Inline Frame Example"-->
-<!--            width="800"-->
-<!--            height="600"-->
-<!--            src="{% static 'edwith_like_num_visual_0630_세원.html'%}">-->
-<!--        </iframe>-->
+        <span id="bodyimage">
+            {{ form.as_p }}
         </span>
     </div>
 
@@ -84,7 +66,3 @@
 
 </body>
 </html>
-
-
-
-
