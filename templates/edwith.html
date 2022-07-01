@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-   
 </head>
 <body>
     <div>
@@ -20,20 +19,20 @@
                 <span>로그인</span>
                 <span>회원가입</span>
             </p>
-            
+
 
         </div>
         <div id="header2">
             <span id="title">
                 <h2>CS 공개강좌 분석 포털</h2>
-            </span> 
+            </span>
             <span id="header2_menu">
-                <span onclick="location.href='/kmooc/'">CS in K-MOOC</span>
-                <span onclick="location.href='/kocw/'">CS in KOCW</span>
-                <span onclick="location.href='/edwith/'">CS in edwith</span>
+                <span>CS in K-MOOC</span>
+                <span>CS in KOCW</span>
+                <span><b>CS in edwith</b></span>
                 <span>커뮤니티 게시판</span>
             </span>
-              
+
         </div>
         <div id="header3">
             <span id="search">
@@ -44,10 +43,22 @@
     </div>
 
     <div id="body">
-        <span id="bodyimage">
-            <img src="{% static 'image/bodyimage.jpg' %}" alt="bodyimage" max-width=1200px; height=auto;>
+        <span>
+        <iframe id="inlineFrameExample"
+            title="Inline Frame Example"
+            width="800"
+            height="600"
+            src="{% static 'edwith_student_num_visual_0630_세원.html'%}">
+        </iframe>
         </span>
-        </div>
+        <span>
+            <iframe id="inlineFrameExample"
+            title="Inline Frame Example"
+            width="800"
+            height="600"
+            src="{% static 'edwith_like_num_visual_0630_세원.html'%}">
+        </iframe>
+        </span>
     </div>
 
     <div id="footer">
@@ -67,3 +78,7 @@
 
 </body>
 </html>
+
+
+
+
