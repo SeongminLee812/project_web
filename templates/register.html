@@ -7,33 +7,11 @@
     <title>CS 공개강좌 분석 포털</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/css01.css' %}" type="text/css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-    <style>
-        #visualbody {
-        width: 1200px;
-        text-align: center;
-        margin: auto;
-        background-color: ;
-        float: auto;
-        }
 
-        #visual_img_title {
-        width="900px"
-        margin: auto;
-        text-align: left;
-        background-color: ;
-        }
-
-        #visual_img {
-        width="900px"
-        margin: auto;
-        text-align: center;
-        background-color: ;
-        float: auto;
-        }
-    </style>
 </head>
 <body>
     <div>
@@ -50,9 +28,9 @@
                 <h2>CS 공개강좌 분석 포털</h2>
             </span>
             <span id="header2_menu">
-                <span>CS in K-MOOC</span>
-                <span><b>CS in KOCW</b></span>
-                <span>CS in edwith</span>
+                <span onclick="location.href='/kmooc/'">CS in K-MOOC</span>
+                <span onclick="location.href='/kocw/'">CS in KOCW</span>
+                <span onclick="location.href='/edwith/'">CS in edwith</span>
                 <span>커뮤니티 게시판</span>
             </span>
 
@@ -65,32 +43,10 @@
         </div>
     </div>
 
-    <div id="visualbody">
-        <iframe src="{% static 'kocw_visual_topten.html'%}"
-                width="900px"
-                height="900px"
-                >
-        </iframe>
-        <iframe src="{% static 'kocw_crawling_0630_컴퓨터통합_산점도.html'%}"
-                width="900px"
-                height="900px"
-                >
-        </iframe>
-        <br>
-        <br>
-        <p id="visual_img_title">
-        KOCW CS 강좌명 워드클라우드
-        </p>
-        <p id="visual_img">
-            <br>
-            <br>
-            <img src="{% static 'image/Kocw_cloud_0629_통합_효풍.png'%}"
-                 width="900px"
-                 alt="KOCW CS 강좌명 워드클라우드">
-            <br>
-        </p>
-        <br>
-        <br>
+    <div id="body">
+        <span id="bodyimage">
+            {{ form.as_p }}
+        </span>
     </div>
 
     <div id="footer">
@@ -105,11 +61,8 @@
             <br>
         </p>
     </div>
+
 </body>
 
 </body>
 </html>
-
-
-
-
