@@ -12,6 +12,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 
+
+    <style>
+        .main_kmooc { float: left; width: 500px; border: 1px solid; }
+        .main_kocw { float: left; margin-left; width: 500px; border: 1px solid; }
+        .main_edwith { float: left; margin-left; width: 500px; border: 1px solid; }
+    </style>
+
 </head>
 <body>
     <div>
@@ -44,11 +51,38 @@
     </div>
 
     <div id="body">
-        <span id="bodyimage">
-            <img src="{% static 'image/bodyimage.jpg' %}" alt="bodyimage" max-width=1200px; height=auto;>
-        </span>
+        <div class="main_kmooc">
+            <a href="http://www.kmooc.kr/">
+                <div class="kmooc">
+                    <img src="{% static 'image/kmooc.png' %}" width="350" height="auto">
+                    <br>
+                    <span class="title">K-MOOC</span>
+                    <p class="comt">K-MOOC 설명 입니다.</p>
+                </div>
+            </a>
         </div>
-    </div>
+
+        <div class="main_kocw">
+            <a href="http://www.kocw.net/home/index.do">
+                <div class="kowc">
+                    <img src="{% static 'image/kocw.png' %}" width="350" height="auto">
+                    <br>
+                    <span class="title">KOCW</span>
+                    <p class="comt">KOCW 설명 입니다.</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="main_edwith">
+            <a href="https://www.edwith.org/">
+                <div class="edwith">
+                    <img src="{% static 'image/edwith.png' %}" width="350" height="auto">
+                    <br>
+                    <span class="title">edwith</span>
+                    <p class="comt">edwith 설명 입니다.</p>
+                </div>
+            </a>
+        </div>
 
     <div id="footer">
         <p id="innerfooter">
@@ -63,7 +97,7 @@
         </p>
     </div>
 
-</body>
+
 
 </body>
 </html>
