@@ -44,6 +44,12 @@
 
     <div id="body">
         <span><h1>여기수정하기</h1><br><br><br><br><br><br><br><br><br><br><br>
+            {% for MoocAll in MoocAllList%}
+            <div> {{ MoocAll.num }} </div>
+            <div> {{ MoocAll.name }} </div>
+            <div> {{ MoocAll.short_description }} </div>
+            <div> {{ MoocAll.teachers }} </div>
+            {% endfor %}
 <!--        <iframe id="inlineFrameExample"-->
 <!--            title="Inline Frame Example"-->
 <!--            width="800"-->
