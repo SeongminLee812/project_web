@@ -13,7 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
     <style>
         .course_list{
-
+            position: relative;
+            left: 80px;
         }
         a{
             display: block;
@@ -26,10 +27,14 @@
             letter-spacing: -1px;
             line-height: 1.5;
             background: none;
-            margin: 0;
+            margin: 3px;
         }
         a:hover{
             color: cadetblue;
+        }
+        #visual{
+            height: 400px;
+            width: 600px;
         }
 
 
@@ -66,9 +71,9 @@
     </div>
 
     <div id="body">
-        <span><h1>여기수정하기</h1><br><br><br><br><br><br><br><br><br><br><br>        </span>
+        <div id="visual"></div>
 
-            <ul class="course_list" type="circle">
+            <ul class="course_list">
                 {% for MoocAll in MoocAllList%}
                 <li><a href="http://www.kmooc.kr/courses/{{ MoocAll.course_id }}" target="_blank">{{ MoocAll.name }}</a></li>
                  {% endfor %}
