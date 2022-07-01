@@ -13,25 +13,21 @@
     <style>
         #visualbody {
         width: 1200px;
-        text-align: center;
         margin: auto;
+        text-align: center;
         background-color: ;
         float: auto;
-        }
-
-        #visual_img_title {
-        width="900px"
-        margin: auto;
-        text-align: left;
-        background-color: ;
+        display:block;
         }
 
         #visual_img {
-        width="900px"
+        width="1200px"
         margin: auto;
         text-align: center;
         background-color: ;
         float: auto;
+        font-size: 20px;
+        font-weight: 500;
         }
     </style>
 </head>
@@ -66,27 +62,30 @@
     </div>
 
     <div id="visualbody">
-        <iframe src="{% static 'kocw_visual_topten.html'%}"
-                width="900px"
-                height="900px"
-                >
+        <span>
+            <iframe src="{% static 'kocw_visual_topten.html'%}"
+                width="550"
+                height="550"
+                frameborder="0">
+            </iframe>
+        </span>
+        <span>
+            <iframe src="{% static 'kocw_crawling_0630_컴퓨터통합_산점도.html'%}"
+                width="550"
+                height="550"
+                frameborder="0">
         </iframe>
-        <iframe src="{% static 'kocw_crawling_0630_컴퓨터통합_산점도.html'%}"
-                width="900px"
-                height="900px"
-                >
-        </iframe>
+        </span>
         <br>
         <br>
-        <p id="visual_img_title">
-        KOCW CS 강좌명 워드클라우드
-        </p>
         <p id="visual_img">
+            <br>
+            CS 분야 강좌명 워드클라우드
             <br>
             <br>
             <img src="{% static 'image/Kocw_cloud_0629_통합_효풍.png'%}"
-                 width="900px"
-                 alt="KOCW CS 강좌명 워드클라우드">
+                 width="550"
+                 alt="CS 분야 강좌명 워드클라우드">
             <br>
         </p>
         <br>
