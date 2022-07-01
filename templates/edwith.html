@@ -11,6 +11,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    <style>
+
+        .clearfix{
+            text-align:center;
+            display:block;
+            width:1500px;
+            border:none;
+        }
+
+
+
+    </style>
+
 </head>
 <body>
     <div>
@@ -42,20 +55,22 @@
         </div>
     </div>
 
-    <div id="body">
-        <span>
+    <div id="body" class="clearfix">
+        <span class="edwith_1">
         <iframe id="inlineFrameExample"
             title="Inline Frame Example"
-            width="800"
-            height="600"
+                width="700"
+                height="550"
+                frameborder="0"
             src="{% static 'edwith_student_num_visual_0630_세원.html'%}">
         </iframe>
         </span>
-        <span>
+        <span class="edwidth_1">
             <iframe id="inlineFrameExample"
             title="Inline Frame Example"
-            width="800"
-            height="600"
+                    width="700"
+                    height="550"
+                    frameborder="0"
             src="{% static 'edwith_like_num_visual_0630_세원.html'%}">
         </iframe>
         </span>
