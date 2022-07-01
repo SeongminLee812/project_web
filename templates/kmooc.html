@@ -43,13 +43,17 @@
     </div>
 
     <div id="body">
-        <span><h1>여기수정하기</h1><br><br><br><br><br><br><br><br><br><br><br>
-            {% for MoocAll in MoocAllList%}
-            <div> {{ MoocAll.num }} </div>
-            <div> {{ MoocAll.name }} </div>
-            <div> {{ MoocAll.short_description }} </div>
-            <div> {{ MoocAll.teachers }} </div>
-            {% endfor %}
+        <span><h1>여기수정하기</h1><br><br><br><br><br><br><br><br><br><br><br>        </span>
+
+            <ul>
+                {% for MoocAll in MoocAllList%}
+<!--                <li>{{ MoocAll.num }} </li>-->
+                <li>{{ MoocAll.name }} <button onclick="location.href='http://www.kmooc.kr/courses/{{ MoocAll.course_id }}'">바로가기</button></li>
+<!--                <li>{{ MoocAll.short_description }} </li>-->
+<!--                <li>{{ MoocAll.teachers }}</li>-->
+                 {% endfor %}
+            </ul>
+
 <!--        <iframe id="inlineFrameExample"-->
 <!--            title="Inline Frame Example"-->
 <!--            width="800"-->
