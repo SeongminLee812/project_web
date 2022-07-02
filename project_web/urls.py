@@ -24,5 +24,6 @@ urlpatterns = [
     path('edwith/', include('edwith.urls'), name='edwith'),
     path('kmooc/', include('kmooc.urls'), name='kmooc'),
     path('kocw/', include('kocw.urls'), name='kocw'),
-    path('register/', views.register)
+    path('register/', views.register),
+    path('search/', views.search),
 ]
