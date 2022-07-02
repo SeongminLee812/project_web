@@ -21,7 +21,6 @@ def search(request):
     search_word = request.POST['q']
     # 검색어가 여러개일 경우
     search_word_split = search_word.split(' ')
-    print(search_word_split)
     if len(search_word_split) > 1:
         search_result_kmooc = MoocAllList.objects.filter(Q(name__icontains=search_word_split[0])|Q(name__icontains=search_word_split[1]))
         search_result_kocw = KocwAllList.objects.filter(Q(course_title__icontains=search_word_split[0])|Q(course_title__icontains=search_word_split[1]))

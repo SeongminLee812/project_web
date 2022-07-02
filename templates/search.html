@@ -14,7 +14,14 @@
 
 
     <style>
-
+        #searchResult table{
+            margin-left: 30px;
+            margin-bottom: 10px;
+            border: 0px;
+        }
+        #searchResult h2{
+            margin-left: 20px;
+        }
     </style>
 
 </head>
@@ -30,7 +37,7 @@
         </div>
         <div id="header2">
             <span id="title">
-                <h2>CS 공개강좌 분석 포털</h2>
+                <h3>CS 공개강좌 분석 포털</h3>
             </span>
             <span id="header2_menu">
                 <span onclick="location.href='/kmooc/'">CS in K-MOOC</span>
@@ -52,39 +59,124 @@
 
     <div id="body">
         <div id="searchResult">
+
             <div>
-                <h3>kmooc 강좌</h3>
+                <h2>kmooc 강좌</h2>
                 <ul>
                     {% for searchResultItem in searchResultKmooc %}
                     <li>
-                        <a href="http://www.kmooc.kr/courses/{{ searchResultItem.course_id }}" target="_blank"> {{ searchResultItem.name }} </a>
+                        <table>
+                            <col width="300px">
+                            <tr>
+                                <td>강좌명</td>
+                                <td><a href="http://www.kmooc.kr/courses/{{ searchResultItem.course_id }}" target="_blank"> {{ searchResultItem.name }} </a></td>
+                            </tr>
+                            <tr>
+                                <td>제공기관</td>
+                                <td>{{ searchResultItem.org_name }}</td>
+                            </tr>
+                            <tr>
+                                <td>강사</td>
+                                <td>{{ searchResultItem.teachers }}</td>
+                            </tr>
+                            <tr>
+                                <td>운영기간</td>
+                                <td>{{ searchResultItem.end }}</td>
+                            </tr>
+                            <tr>
+                                <td>분류</td>
+                                <td>{{ searchResultItem.middle_classfy_name }}</td>
+                            </tr>
+                            <tr>
+                                <td>평가</td>
+                                <td>{{ searchResultItem.star }}</td>
+                            </tr>
+                        </table>
                     </li>
                 {% endfor %}
                 </ul>
             </div>
+
             <div>
-                <h3>kocw 강좌</h3>
-                <ul>
+
+                <h2>kocw 강좌</h2>
+                    <ul>
                     {% for searchResultItem in searchResultKocw %}
                     <li>
-                        <a href="{{ searchResultItem.course_url }}" target="_blank"> {{ searchResultItem.course_title }} </a>
+                        <table>
+                            <col width="300px">
+                            <tr>
+                                <td>강좌명</td>
+                                <td><a href="{{ searchResultItem.course_url }}" target="_blank"> {{ searchResultItem.course_title }} </a></td>
+                            </tr>
+                            <tr>
+                                <td>제공기관</td>
+                                <td>{{ searchResultItem.provider }}</td>
+                            </tr>
+                            <tr>
+                                <td>강사</td>
+                                <td>{{ searchResultItem.lecturer }}</td>
+                            </tr>
+                            <tr>
+                                <td>분류</td>
+                                <td>{{ searchResultItem.taxon }}</td>
+                            </tr>
+                            <tr>
+                                <td>학기</td>
+                                <td>{{ searchResultItem.term }}</td>
+                            </tr>
+                            <tr>
+                                <td>조회수</td>
+                                <td>{{ searchResultItem.view_count }}</td>
+                            </tr>
+                            <tr>
+                                <td>평가</td>
+                                <td>{{ searchResultItem.popular_score }}</td>
+                            </tr>
+                        </table>
                     </li>
                 {% endfor %}
                 </ul>
             </div>
+
+
             <div>
-                <h3>edwith 강좌</h3>
+                <h2>edwith 강좌</h2>
                 <ul>
                     {% for searchResultItem in searchResultEdwith %}
                     <li>
-                        <a href="{{ searchResultItem.href }}" target="_blank"> {{ searchResultItem.title }} </a>
+                        <table>
+                            <col width="300px">
+                            <tr>
+                                <td>강좌명</td>
+                                <td><a href="{{ searchResultItem.href }}" target="_blank"> {{ searchResultItem.title }} </a></td>
+                            </tr>
+                            <tr>
+                                <td>제공기관</td>
+                                <td>{{ searchResultItem.org }}</td>
+                            </tr>
+                            <tr>
+                                <td>강사</td>
+                                <td>{{ searchResultItem.lecturer }}</td>
+                            </tr>
+                            <tr>
+                                <td>운영기간</td>
+                                <td>{{ searchResultItem.date }}</td>
+                            </tr>
+                            <tr>
+                                <td>수강생 수</td>
+                                <td>{{ searchResultItem.student_num }}</td>
+                            </tr>
+                            <tr>
+                                <td>좋아요 수</td>
+                                <td>{{ searchResultItem.like_num }}</td>
+                            </tr>
+                        </table>
                     </li>
-                    {% endfor %}
+                {% endfor %}
                 </ul>
             </div>
-
         </div>
-
     </div>
 
     <div id="footer">
