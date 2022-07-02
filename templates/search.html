@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS 공개강좌 분석 포털</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/css01.css' %}" type="text/css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+
+
+    <style>
+        #searchResult table{
+            margin-left: 30px;
+            margin-bottom: 10px;
+            border: 0px;
+        }
+        #searchResult h2{
+            color: #2763ba;
+            margin-left: 20px;
+        }
+        #searchResult a{
+            font-size: 20px;
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            letter-spacing: -1px;
+            line-height: 1.5;
+            background: none;
+        }
+        #searchResult a:hover{
+            color: cadetblue;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <div id="header1">
+            <p id="header1_munu">
+                <span>로그인</span>
+                <span onclick="location.href='/register/'">회원가입</span>
+            </p>
+
+
+        </div>
+        <div id="header2">
+            <span id="title">
+                <h3>CS 공개강좌 분석 포털</h3>
+            </span>
+            <span id="header2_menu">
+                <span onclick="location.href='/kmooc/'">CS in K-MOOC</span>
+                <span onclick="location.href='/kocw/'">CS in KOCW</span>
+                <span onclick="location.href='/edwith/'">CS in edwith</span>
+                <span>커뮤니티 게시판</span>
+            </span>
+
+        </div>
+        <div id="header3">
+            <span id="search">
+                <form action="/search/" method="post"> {% csrf_token %}
+                    <input type="search" placeholder="강좌 검색 키워드 입력" name="q">
+                    <button type="submit"><img src="{% static 'image/ic_search.png' %}" alt="검색이미지"></button>
+                </form>
+            </span>
+        </div>
+    </div>
+
+    <div id="body">
+        <div id="searchResult">
+
+            <div>
+                <h2>kmooc 강좌</h2>
+                <ul>
+                    {% for searchResultItem in searchResultKmooc %}
+                    <li>
+                        <table>
+                            <col width="300px">
+                            <tr>
+                                <td>강좌명</td>
+                                <td><a href="http://www.kmooc.kr/courses/{{ searchResultItem.course_id }}" target="_blank"> {{ searchResultItem.name }} </a></td>
+                            </tr>
+                            <tr>
+                                <td>제공기관</td>
+                                <td>{{ searchResultItem.org_name }}</td>
+                            </tr>
+                            <tr>
+                                <td>강사</td>
+                                <td>{{ searchResultItem.teachers }}</td>
+                            </tr>
+                            <tr>
+                                <td>운영기간</td>
+                                <td>{{ searchResultItem.end }}</td>
+                            </tr>
+                            <tr>
+                                <td>분류</td>
+                                <td>{{ searchResultItem.middle_classfy_name }}</td>
+                            </tr>
+                            <tr>
+                                <td>평가</td>
+                                <td>{{ searchResultItem.star }}</td>
+                            </tr>
+                        </table>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+
+            <div>
+
+                <h2>kocw 강좌</h2>
+                    <ul>
+                    {% for searchResultItem in searchResultKocw %}
+                    <li>
+                        <table>
+                            <col width="300px">
+                            <tr>
+                                <td>강좌명</td>
+                                <td><a href="{{ searchResultItem.course_url }}" target="_blank"> {{ searchResultItem.course_title }} </a></td>
+                            </tr>
+                            <tr>
+                                <td>제공기관</td>
+                                <td>{{ searchResultItem.provider }}</td>
+                            </tr>
+                            <tr>
+                                <td>강사</td>
+                                <td>{{ searchResultItem.lecturer }}</td>
+                            </tr>
+                            <tr>
+                                <td>분류</td>
+                                <td>{{ searchResultItem.taxon }}</td>
+                            </tr>
+                            <tr>
+                                <td>학기</td>
+                                <td>{{ searchResultItem.term }}</td>
+                            </tr>
+                            <tr>
+                                <td>조회수</td>
+                                <td>{{ searchResultItem.view_count }}</td>
+                            </tr>
+                            <tr>
+                                <td>평가</td>
+                                <td>{{ searchResultItem.popular_score }}</td>
+                            </tr>
+                        </table>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+
+
+            <div>
+                <h2>edwith 강좌</h2>
+                <ul>
+                    {% for searchResultItem in searchResultEdwith %}
+                    <li>
+                        <table>
+                            <col width="300px">
+                            <tr>
+                                <td>강좌명</td>
+                                <td><a href="{{ searchResultItem.href }}" target="_blank"> {{ searchResultItem.title }} </a></td>
+                            </tr>
+                            <tr>
+                                <td>제공기관</td>
+                                <td>{{ searchResultItem.org }}</td>
+                            </tr>
+                            <tr>
+                                <td>강사</td>
+                                <td>{{ searchResultItem.lecturer }}</td>
+                            </tr>
+                            <tr>
+                                <td>운영기간</td>
+                                <td>{{ searchResultItem.date }}</td>
+                            </tr>
+                            <tr>
+                                <td>수강생 수</td>
+                                <td>{{ searchResultItem.student_num }}</td>
+                            </tr>
+                            <tr>
+                                <td>좋아요 수</td>
+                                <td>{{ searchResultItem.like_num }}</td>
+                            </tr>
+                        </table>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <p id="innerfooter">
+            <br>
+            <b>About Us</b><br>
+            멀티캠퍼스 데이터 사이언스/엔지니어링 전문가 과정 15회차 8조(데이터잘팔조)입니다.<br>
+            공공 데이터 분석 및 시각화 프로젝트로서 본 웹사이트를 제작하였습니다.<br>
+            <br>
+            COPYRIGHT BY SELLING DATA WELL CO., LTD ALL RIGHTS RESERVED.<br>
+            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">크리에이티브 커먼즈 저작자표시 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.
+            <br>
+        </p>
+    </div>
+
+
+
+</body>
+</html>

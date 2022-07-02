@@ -21,7 +21,6 @@ def kmooc_data(request):
     # 10개만 뽑을 거니까 10번만 반복해서 list에 추가
     for i in range(10):
         not_dup_course_list.append(df.iloc[i])
-    print(not_dup_course_list)
 
     return render(request, 'kmooc.html', {'MoocAllList':not_dup_course_list})
     #MoocAllList(html에 전달할 값)에 위 course_list변수
