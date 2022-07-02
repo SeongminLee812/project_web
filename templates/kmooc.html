@@ -75,7 +75,11 @@
 
             <ul class="course_list">
                 {% for MoocAll in MoocAllList%}
-                <li><a href="http://www.kmooc.kr/courses/{{ MoocAll.course_id }}" target="_blank">{{ MoocAll.name }}</a></li>
+                <li>
+                    <a href="http://www.kmooc.kr/courses/{{ MoocAll.course_id }}" target="_blank">
+                    {{ MoocAll.num }} / {{ MoocAll.name }} / 강의 시작일 : {{ MoocAll.start }} / 별점 : {{ MoocAll.star }}
+                    </a>
+                </li>
                  {% endfor %}
             </ul>
 
