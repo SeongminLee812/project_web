@@ -149,6 +149,21 @@
         <br>
     </div>
 
+            <div>
+            <ul class="course_list">
+                {% for KocwAll in KocwAllList%}
+                <li>
+                    <a href="{{ KoocAll.course_url }}" target="_blank">
+                    {{ KocwAll.num }} / {{ KocwAll.course_title }} / 조회수 : {{ KocwAll.view_count }}
+                    </a>
+                </li>
+                 {% endfor %}
+            </ul>
+        </div>
+
+
+
+
     <div id="footer">
         <p id="innerfooter">
             <br>
