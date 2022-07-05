@@ -71,6 +71,26 @@
             cursor: pointer;
         }
         /* 여기까지 수정 */
+        .course_list{
+            position: relative;
+            left: 80px;
+        }
+        .course_list a{
+            display: block;
+            height: 27px;
+            font-size: 15px;
+            color: #666666;
+            font-weight: normal;
+            text-decoration: none;
+            border: none;
+            letter-spacing: -1px;
+            line-height: 1.5;
+            background: none;
+            margin: 3px;
+        }
+        .course_list a:hover{
+            color: cadetblue;
+        }
 
 
     </style>
@@ -154,7 +174,7 @@
             <ul class="course_list">
                 {% for KocwAll in KocwAllList%}
                 <li>
-                    <a href="{{ KoocAll.course_url }}" target="_blank">
+                    <a href="{{ KocwAll.course_url }}" target="_blank">
                     {{ KocwAll.num }} / {{ KocwAll.course_title }} / 조회수 : {{ KocwAll.view_count }}
                     </a>
                 </li>
