@@ -22,5 +22,5 @@ def kmooc_data(request):
     for i in range(10):
         not_dup_course_list.append(df.iloc[i])
 
-    return render(request, 'kmooc.html', {'MoocAllList':not_dup_course_list})
+    return render(request, 'kmooc.html', {'MoocAllList': not_dup_course_list})
     #MoocAllList(html에 전달할 값)에 위 course_list변수
