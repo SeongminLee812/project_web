@@ -18,7 +18,6 @@
     background-color: #ddd;
 }
 
-/* 각 페이지에서 header1_menu 로 이름 수정해야 함 */
 #header1_munu {
     width: 1200px;
     height: 40px;
@@ -74,47 +73,31 @@
     font-weight: bold;
 }
  
-/* 여기부터 수정 */
 #header3 {
-            display: flex;
-            width: 1200px;
-            height: 120px;
-            line-height: 60px;
-            margin: auto;
-            text-align: center;
-            background-color: #FFFFFF;
-        }
+    width: 1200px;
+    height: 100px;
+    margin: auto;
+    text-align: center;
+}
 
-        #search {
-            position: relative;
-            height: 40px;
-            line-height: 40px;
-            width: 400px;
-            margin: auto;
-            border: 3px solid #F7F7F7;
-        }
+#header3 > span {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    margin: auto;
+    cursor: pointer;
+}
 
-        #search input {
-            font-size: 16px;
-            width: 325px;
-            padding: 10px;
-            border: 0px;
-            outline: none;
-            float: left;
-        }
+#header3 > input {
+    transform: scale(2)
+}
 
-        #search img {
-            position absolute;
-            width: 20px;
-            height: 20px;
-            margin: auto;
-            padding: 10px;
-            border: 0px
-            outline: none;
-            float: right;
-            cursor: pointer;
-        }
-/* 여기까지 수정 */
+#body {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: block;
+}
 
 #bodyimage {
     width: 1200px;
