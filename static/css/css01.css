@@ -6,6 +6,17 @@
 #header1 {
     background-color: #F7F7F7;
 }
+/* 천번째 div tag에 class="navbar" 추가*/
+.navbar {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+
+}
+/* 추가 */
+.navbar span :hover{
+    background-color: #ddd;
+}
 
 /* 각 페이지에서 header1_menu 로 이름 수정해야 함 */
 #header1_munu {

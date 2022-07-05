@@ -13,36 +13,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
     <style>
 
-        .clearfix{
-            text-align:center;
-            display:block;
-            width:1500px;
-            border:none;
-            float:auto;
-        }
 
-         #header0{
-            position: fixed;
-
-        }
-
-
-
+ .clearfix{
+    width: 1200px;
+    margin: auto;
+    text-align: center;
+    background-color: ;
+    float: auto;
+    display:block;
+    }
 
     </style>
 
 </head>
 <body>
 
-    <div id="header0">
+    <div class="navbar">
         <div id="header1">
             <p id="header1_munu">
                 <span>로그인</span>
                 <span>회원가입</span>
             </p>
-
-
         </div>
+
         <div id="header2">
             <span id="title">
                 <h2 onclick="location.href='/'">CS 공개강좌 분석 포털</h2>
@@ -57,42 +50,48 @@
         </div>
         <div id="header3">
             <span id="search">
-                <input type="search" placeholder="강좌 검색 키워드 입력">
-                <img src="{% static 'image/ic_search.png' %}" alt="검색이미지">
+                <form action="search/" method="post"> {% csrf_token %}
+                    <input type="search" placeholder="강좌 검색 키워드 입력" name="q">
+                    <img src="{% static 'image/ic_search.png' %}" alt="검색이미지">
+                </form>
             </span>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+
 
 
     <div id="body" class="clearfix">
         <span class="edwith_1">
         <iframe id="inlineFrameExample"
             title="Inline Frame Example"
-                width="700"
+                width="590"
                 height="550"
                 frameborder="0"
             src="{% static 'edwith_student_num_visual_0630_세원.html'%}">
         </iframe>
+
         </span>
         <span class="edwidth_1">
             <iframe id="inlineFrameExample"
             title="Inline Frame Example"
-                    width="700"
+                    width="590"
                     height="550"
                     frameborder="0"
             src="{% static 'edwith_like_num_visual_0630_세원.html'%}">
         </iframe>
         </span>
     </div>
+
+     <ul class="course_list">
+                {% for EdwithAll in EdwithAllList %}
+                <li>
+                    <a href="{{ EdwithAll.href }}" >
+                    {{ EdwithAll.num }} / {{ EdwithAll.title }} / 운영기간 : {{ EdwithAll.date }} / 수강생수 : {{ EdwithAll.student_num }}
+                    </a>
+                </li>
+                 {% endfor %}
+              </ul>
 
 
 
