@@ -11,9 +11,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-
     <style>
-        a { text-decoration: none; color: black; }
+        .course_list{
+            position: relative;
+            left: 80px;
+        }
+        a{
+            display: block;
+            height: 27px;
+            font-size: 15px;
+            color: #666666;
+            font-weight: normal;
+            text-decoration: none;
+            border: none;
+            letter-spacing: -1px;
+            line-height: 1.5;
+            background: none;
+            margin: 3px;
+        }
+        a:hover{
+            color: cadetblue;
+        }
+        #visual{
+            height: 400px;
+            width: 600px;
+        }
+        .clearfix{
+            text-align:center;
+            display:block;
+            width:1500px;
+            border:none;
+            float:auto;
+        }
+
+
     </style>
 </head>
 <body>
@@ -28,50 +59,67 @@
         </div>
         <div id="header2">
             <span id="title">
-                <a href="http://127.0.0.1:8000/" class="logo">
-                    <h2>CS 공개강좌 분석 포털</h2>
-                </a>
+                <h2>CS 공개강좌 분석 포털</h2>
             </span>
             <span id="header2_menu">
-                <span><b>CS in K-MOOC</b></span>
-                <span>CS in KOCW</span>
-                <span>CS in edwith</span>
-                <span>커뮤니티 게시판</span>
+                <span onclick="location.href='/kmooc/'"><b>CS in K-MOOC</b></span>
+                <span onclick="location.href='/kocw/'">CS in KOCW</span>
+                <span onclick="location.href='/edwith/'">CS in edwith</span>
+                <span onclick="location.href='#'">커뮤니티 게시판</span>
             </span>
 
         </div>
+
         <div id="header3">
-            <span id="search">
-                <input type="search" placeholder="강좌 검색 키워드 입력">
-                <img src="{% static 'image/ic_search.png' %}" alt="검색이미지">
-            </span>
+            <div id="search">
+                <form action="/search/" method="post"> {% csrf_token %}
+                    <input type="text" placeholder="강좌 검색 키워드 입력" name="q">
+                    <button type="submit"><img src="{% static 'image/ic_search.png' %}" alt="검색이미지"></button>
+                </form>
+            </div>
         </div>
+
+{#        <div id="header3">#}
+{#            <span id="search">#}
+{#                <input type="search" placeholder="강좌 검색 키워드 입력">#}
+{#                <img src="{% static 'image/ic_search.png' %}" alt="검색이미지">#}
+{#            </span>#}
+{#        </div>#}
     </div>
 
-    <div id="body">
-        <span><h1>여기수정하기</h1><br><br><br><br><br><br><br><br><br><br><br>
-            {% for MoocAll in MoocAllList%}
-            <div> {{ MoocAll.num }} </div>
-            <div> {{ MoocAll.name }} </div>
-            <div> {{ MoocAll.short_description }} </div>
-            <div> {{ MoocAll.teachers }} </div>
-            {% endfor %}
-<!--        <iframe id="inlineFrameExample"-->
-<!--            title="Inline Frame Example"-->
-<!--            width="800"-->
-<!--            height="600"-->
-<!--            src="{% static 'edwith_student_num_visual_0630_세원.html'%}">-->
-<!--        </iframe>-->
-<!--        </span>-->
-<!--        <span>-->
-<!--            <iframe id="inlineFrameExample"-->
-<!--            title="Inline Frame Example"-->
-<!--            width="800"-->
-<!--            height="600"-->
-<!--            src="{% static 'edwith_like_num_visual_0630_세원.html'%}">-->
-<!--        </iframe>-->
+    <div id="body" class="clearfix">
+
+        <span class="edwidth_1">
+            <iframe id="inlineFrameExample"
+            title="Inline Frame Example"
+            width="750"
+            height="550"
+            frameborder="0"
+            src="{% static 'kmooc_star_visual_0701_인덕.html'%}">
+        </iframe>
         </span>
+{#        <span class="edwidth_1">#}
+{#            <iframe id="inlineFrameExample"#}
+{#            title="Inline Frame Example"#}
+{#            width="750"#}
+{#            height="550"#}
+{#            src="{% static 'edwith_like_num_visual_0630_세원.html'%}">#}
+{#        </iframe>#}
+{#        </span>#}
     </div>
+
+        <div>
+            <ul class="course_list">
+                {% for MoocAll in MoocAllList%}
+                <li>
+                    <a href="http://www.kmooc.kr/courses/{{ MoocAll.course_id }}/about" target="_blank">
+                    {{ MoocAll.num }} / {{ MoocAll.name }} / 강의 시작일 : {{ MoocAll.enrollment_start }} / 별점 : {{ MoocAll.star }}
+                    </a>
+                </li>
+                 {% endfor %}
+            </ul>
+        </div>
+
 
     <div id="footer">
         <p id="innerfooter">
@@ -86,7 +134,7 @@
         </p>
     </div>
 
-</body>
+
 
 </body>
 </html>

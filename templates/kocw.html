@@ -13,35 +13,72 @@
     <style>
         #visualbody {
         width: 1200px;
-        text-align: center;
         margin: auto;
+        text-align: center;
         background-color: ;
         float: auto;
-        }
-
-        #visual_img_title {
-        width="900px"
-        margin: auto;
-        text-align: left;
-        background-color: ;
+        display:block;
         }
 
         #visual_img {
-        width="900px"
+        width="1200px"
         margin: auto;
         text-align: center;
         background-color: ;
         float: auto;
+        font-size: 20px;
+        font-weight: 500;
         }
 
-        a { text-decoration: none; color: black; }
+        /* 여기부터 수정 */
+        #header3 {
+            display: flex;
+            width: 1200px;
+            height: 120px;
+            line-height: 60px;
+            margin: auto;
+            text-align: center;
+            background-color: #FFFFFF;
+        }
+
+        #search {
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+            width: 400px;
+            margin: auto;
+            border: 3px solid #F7F7F7;
+        }
+
+        #search input {
+            font-size: 16px;
+            width: 325px;
+            padding: 10px;
+            border: 0px;
+            outline: none;
+            float: left;
+        }
+
+        #search img {
+            position absolute;
+            width: 20px;
+            height: 20px;
+            margin: auto;
+            padding: 10px;
+            border: 0px
+            outline: none;
+            float: right;
+            cursor: pointer;
+        }
+        /* 여기까지 수정 */
+
 
     </style>
 </head>
 <body>
     <div>
         <div id="header1">
-            <p id="header1_munu">
+            <p id="header1_munu"> <!-- header1_menu 로 이름 수정해야 함 -->
                 <span>로그인</span>
                 <span>회원가입</span>
             </p>
@@ -50,53 +87,82 @@
         </div>
         <div id="header2">
             <span id="title">
-                <a href="http://127.0.0.1:8000/" class="logo">
-                    <h2>CS 공개강좌 분석 포털</h2>
-                </a>
+                <h2 onclick="location.href='/'">CS 공개강좌 분석 포털</h2>
             </span>
             <span id="header2_menu">
-                <span>CS in K-MOOC</span>
-                <span><b>CS in KOCW</b></span>
-                <span>CS in edwith</span>
+                <span onclick="location.href='/kmooc/'">CS in K-MOOC</span>
+                <span onclick="location.href='/kocw/'"><b>CS in KOCW</b></span>
+                <span onclick="location.href='/edwith/'">CS in edwith</span>
                 <span>커뮤니티 게시판</span>
             </span>
 
         </div>
+        <!-- 여기부터 수정 -->
+        <div id="header3">
+            <div id="search">
+                <form action="/search/" method="post"> {% csrf_token %}
+                    <input type="text" placeholder="강좌 검색 키워드 입력" name="q">
+                    <button type="submit"><img src="{% static 'image/ic_search.png' %}" alt="검색이미지"></button>
+                </form>
+            </div>
+        </div>
+
+        <!-- 여기까지 수정 -->
+        <!--
         <div id="header3">
             <span id="search">
                 <input type="search" placeholder="강좌 검색 키워드 입력">
                 <img src="{% static 'image/ic_search.png' %}" alt="검색이미지">
             </span>
         </div>
+        -->
     </div>
 
     <div id="visualbody">
-        <iframe src="{% static 'kocw_visual_topten.html'%}"
-                width="900px"
-                height="900px"
-                >
+        <span>
+            <iframe src="{% static 'kocw_visual_topten.html'%}"
+                width="550"
+                height="550"
+                frameborder="0">
+            </iframe>
+        </span>
+        <span>
+            <iframe src="{% static 'kocw_crawling_0630_컴퓨터통합_산점도.html'%}"
+                width="550"
+                height="550"
+                frameborder="0">
         </iframe>
-        <iframe src="{% static 'kocw_crawling_0630_컴퓨터통합_산점도.html'%}"
-                width="900px"
-                height="900px"
-                >
-        </iframe>
+        </span>
         <br>
         <br>
-        <p id="visual_img_title">
-        KOCW CS 강좌명 워드클라우드
-        </p>
         <p id="visual_img">
+            <br>
+            CS 분야 강좌명 워드클라우드
             <br>
             <br>
             <img src="{% static 'image/Kocw_cloud_0629_통합_효풍.png'%}"
-                 width="900px"
-                 alt="KOCW CS 강좌명 워드클라우드">
+                 width="550"
+                 alt="CS 분야 강좌명 워드클라우드">
             <br>
         </p>
         <br>
         <br>
     </div>
+
+            <div>
+            <ul class="course_list">
+                {% for KocwAll in KocwAllList%}
+                <li>
+                    <a href="{{ KoocAll.course_url }}" target="_blank">
+                    {{ KocwAll.num }} / {{ KocwAll.course_title }} / 조회수 : {{ KocwAll.view_count }}
+                    </a>
+                </li>
+                 {% endfor %}
+            </ul>
+        </div>
+
+
+
 
     <div id="footer">
         <p id="innerfooter">
@@ -112,7 +178,6 @@
     </div>
 </body>
 
-</body>
 </html>
 
 

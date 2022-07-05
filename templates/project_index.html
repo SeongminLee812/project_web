@@ -58,7 +58,7 @@
         </div>
         <div id="header3">
             <span id="search">
-                <form action="search/" method="post"> {% csrf_token %}
+                <form action="/search/" method="post"> {% csrf_token %}
                     <input type="search" placeholder="강좌 검색 키워드 입력" name="q">
                     <button type="submit"><img src="{% static 'image/ic_search.png' %}" alt="검색이미지"></button>
                 </form>

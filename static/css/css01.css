@@ -6,6 +6,17 @@
 #header1 {
     background-color: #F7F7F7;
 }
+/* 천번째 div tag에 class="navbar" 추가*/
+.navbar {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+
+}
+/* 추가 */
+.navbar span :hover{
+    background-color: #ddd;
+}
 
 #header1_munu {
     width: 1200px;
