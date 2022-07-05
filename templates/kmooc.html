@@ -11,33 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+
     <style>
-        .course_list{
-            position: relative;
-            left: 80px;
-        }
-        a{
-            display: block;
-            height: 27px;
-            font-size: 15px;
-            color: #666666;
-            font-weight: normal;
-            text-decoration: none;
-            border: none;
-            letter-spacing: -1px;
-            line-height: 1.5;
-            background: none;
-            margin: 3px;
-        }
-        a:hover{
-            color: cadetblue;
-        }
-        #visual{
-            height: 400px;
-            width: 600px;
-        }
-
-
+        a { text-decoration: none; color: black; }
     </style>
 </head>
 <body>
@@ -52,13 +28,15 @@
         </div>
         <div id="header2">
             <span id="title">
-                <h2>CS 공개강좌 분석 포털</h2>
+                <a href="http://127.0.0.1:8000/" class="logo">
+                    <h2>CS 공개강좌 분석 포털</h2>
+                </a>
             </span>
             <span id="header2_menu">
-                <span onclick="location.href='/kmooc/'"><b>CS in K-MOOC</b></span>
-                <span onclick="location.href='/kocw/'">CS in KOCW</span>
-                <span onclick="location.href='/edwith/'">CS in edwith</span>
-                <span onclick="location.href='#'">커뮤니티 게시판</span>
+                <span><b>CS in K-MOOC</b></span>
+                <span>CS in KOCW</span>
+                <span>CS in edwith</span>
+                <span>커뮤니티 게시판</span>
             </span>
 
         </div>
@@ -71,18 +49,13 @@
     </div>
 
     <div id="body">
-        <div id="visual"></div>
-
-            <ul class="course_list">
-                {% for MoocAll in MoocAllList%}
-                <li>
-                    <a href="http://www.kmooc.kr/courses/{{ MoocAll.course_id }}" target="_blank">
-                    {{ MoocAll.num }} / {{ MoocAll.name }} / 강의 시작일 : {{ MoocAll.start }} / 별점 : {{ MoocAll.star }}
-                    </a>
-                </li>
-                 {% endfor %}
-            </ul>
-
+        <span><h1>여기수정하기</h1><br><br><br><br><br><br><br><br><br><br><br>
+            {% for MoocAll in MoocAllList%}
+            <div> {{ MoocAll.num }} </div>
+            <div> {{ MoocAll.name }} </div>
+            <div> {{ MoocAll.short_description }} </div>
+            <div> {{ MoocAll.teachers }} </div>
+            {% endfor %}
 <!--        <iframe id="inlineFrameExample"-->
 <!--            title="Inline Frame Example"-->
 <!--            width="800"-->
@@ -97,7 +70,7 @@
 <!--            height="600"-->
 <!--            src="{% static 'edwith_like_num_visual_0630_세원.html'%}">-->
 <!--        </iframe>-->
-
+        </span>
     </div>
 
     <div id="footer">

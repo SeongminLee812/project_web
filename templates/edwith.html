@@ -18,23 +18,16 @@
             display:block;
             width:1500px;
             border:none;
-            float:auto;
         }
 
-         #header0{
-            position: fixed;
-
-        }
-
-
+        a { text-decoration: none; color: black; }
 
 
     </style>
 
 </head>
 <body>
-
-    <div id="header0">
+    <div>
         <div id="header1">
             <p id="header1_munu">
                 <span>로그인</span>
@@ -45,12 +38,14 @@
         </div>
         <div id="header2">
             <span id="title">
-                <h2 onclick="location.href='/'">CS 공개강좌 분석 포털</h2>
+                <a href="http://127.0.0.1:8000/" class="logo">
+                    <h2>CS 공개강좌 분석 포털</h2>
+                </a>
             </span>
             <span id="header2_menu">
-                <span onclick="location.href='/kmooc/'">CS in K-MOOC</span>
-                <span onclick="location.href='/kocw/'">CS in KOCW</span>
-                <span onclick="location.href='/edwith/'"><b>CS in edwith</b></span>
+                <span>CS in K-MOOC</span>
+                <span>CS in KOCW</span>
+                <span><b>CS in edwith</b></span>
                 <span>커뮤니티 게시판</span>
             </span>
 
@@ -62,16 +57,6 @@
             </span>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
 
     <div id="body" class="clearfix">
         <span class="edwith_1">
@@ -93,9 +78,6 @@
         </iframe>
         </span>
     </div>
-
-
-
 
     <div id="footer">
         <p id="innerfooter">
