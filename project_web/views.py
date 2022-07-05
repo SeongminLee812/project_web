@@ -34,4 +34,7 @@ def search(request):
 
     return render(request, 'search.html', {'searchResultKmooc': search_result_kmooc,
                                            'searchResultKocw': search_result_kocw,
-                                           'searchResultEdwith': search_result_edwith})
+                                           'searchResultEdwith': search_result_edwith,
+                                           'kmooc_num': len(search_result_kmooc),
+                                           'kocw_num': len(search_result_kocw),
+                                           'edwith_num':len(search_result_edwith)})
