@@ -100,10 +100,13 @@
         <!-- 여기부터 수정 -->
         <div id="header3">
             <div id="search">
-                <input type="text" placeholder="강좌 검색 키워드 입력">
-                <img src="{% static 'image/ic_search.png' %}" alt="검색이미지">
+                <form action="/search/" method="post"> {% csrf_token %}
+                    <input type="text" placeholder="강좌 검색 키워드 입력" name="q">
+                    <button type="submit"><img src="{% static 'image/ic_search.png' %}" alt="검색이미지"></button>
+                </form>
             </div>
         </div>
+
         <!-- 여기까지 수정 -->
         <!--
         <div id="header3">
