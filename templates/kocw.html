@@ -29,12 +29,56 @@
         font-size: 20px;
         font-weight: 500;
         }
+
+        /* 여기부터 수정 */
+        #header3 {
+            display: flex;
+            width: 1200px;
+            height: 120px;
+            line-height: 60px;
+            margin: auto;
+            text-align: center;
+            background-color: #FFFFFF;
+        }
+
+        #search {
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+            width: 400px;
+            margin: auto;
+            border: 3px solid #F7F7F7;
+        }
+
+        #search input {
+            font-size: 16px;
+            width: 325px;
+            padding: 10px;
+            border: 0px;
+            outline: none;
+            float: left;
+        }
+
+        #search img {
+            position absolute;
+            width: 20px;
+            height: 20px;
+            margin: auto;
+            padding: 10px;
+            border: 0px
+            outline: none;
+            float: right;
+            cursor: pointer;
+        }
+        /* 여기까지 수정 */
+
+
     </style>
 </head>
 <body>
     <div>
         <div id="header1">
-            <p id="header1_munu">
+            <p id="header1_munu"> <!-- header1_menu 로 이름 수정해야 함 -->
                 <span>로그인</span>
                 <span>회원가입</span>
             </p>
@@ -43,22 +87,32 @@
         </div>
         <div id="header2">
             <span id="title">
-                <h2>CS 공개강좌 분석 포털</h2>
+                <h2 onclick="location.href='/'">CS 공개강좌 분석 포털</h2>
             </span>
             <span id="header2_menu">
-                <span>CS in K-MOOC</span>
-                <span><b>CS in KOCW</b></span>
-                <span>CS in edwith</span>
+                <span onclick="location.href='/kmooc/'">CS in K-MOOC</span>
+                <span onclick="location.href='/kocw/'"><b>CS in KOCW</b></span>
+                <span onclick="location.href='/edwith/'">CS in edwith</span>
                 <span>커뮤니티 게시판</span>
             </span>
 
         </div>
+        <!-- 여기부터 수정 -->
+        <div id="header3">
+            <div id="search">
+                <input type="text" placeholder="강좌 검색 키워드 입력">
+                <img src="{% static 'image/ic_search.png' %}" alt="검색이미지">
+            </div>
+        </div>
+        <!-- 여기까지 수정 -->
+        <!--
         <div id="header3">
             <span id="search">
                 <input type="search" placeholder="강좌 검색 키워드 입력">
                 <img src="{% static 'image/ic_search.png' %}" alt="검색이미지">
             </span>
         </div>
+        -->
     </div>
 
     <div id="visualbody">
@@ -106,7 +160,6 @@
     </div>
 </body>
 
-</body>
 </html>
 
 
