@@ -4,14 +4,16 @@ from django.db.models import Q # or문 사용하기 위해 import 함
 from django.db.models import Count # 중복개수 세기 위해 import 함\
 from django.db.models import QuerySet
 import pandas as pd
+import datetime
 
 # Create your views here.
 def kmooc(request):
     return render(request, 'kmooc.html')
 
 def kmooc_data(request):
-
-    course_list = MoocAllList.objects.filter(Q(fourth_industry_yn='y')|Q(ai_sec_yn='y')).order_by('-star')  #or 조건문
+    today = datetime.date.today()
+    print(today)
+    course_list = MoocAllList.objects.filter((Q(fourth_industry_yn='y')|Q(ai_sec_yn='y'))&Q(middle_classfy='comp')&(Q(audit_yn='y')|Q(enrollment_end__gte=today))).order_by('-star')  #or 조건문
     # 중복제거 코드
     # 판다스 데이터 프레임 이용
     df = pd.DataFrame(list(course_list.values()))
