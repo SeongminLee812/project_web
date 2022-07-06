@@ -28,7 +28,7 @@
             margin-bottom: 30px;
             overflow: hidden;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-top: 1px solid black;
+            border-top: 1px solid #F7F7F7;
             border-collapse: collapse;
         }
 
@@ -38,23 +38,25 @@
             text-align: left;
             font-size: 30px;
             font-weight: 700;
-            color: 4169e1;
+            color: #2763ba;
         }
 
         th, td {
             padding: 15px;
             color: black;
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid #F7F7F7;
         }
 
         td a {
             text-decoration: none;
-            color: 4169e1;
+            color: #2763ba;
             font-weight: 700;
         }
 
         th {
             text-align: center;
+            background-color: #2763ba;
+            color: #FFFFFF;
         }
 
     </style>
@@ -165,7 +167,6 @@
                             <td>{{ searchResultItem.org }}</td>
                             <td>{{ searchResultItem.lecturer }}</td>
                             <td>{{ searchResultItem.date }}</td>
-                            <td>{{ searchResultItem.student_num }}</td>
                             <td>{{ searchResultItem.student_num }}</td>
                             <td>{{ searchResultItem.like_num }}</td>
                         </tr>
