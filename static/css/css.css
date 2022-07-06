@@ -100,6 +100,15 @@
     outline: none;
     float: left;
 }
+#search button {
+    width: 50px;
+    margin: 0;
+    border: none;
+    outline: none;
+    float: right;
+    box-shadow: none;
+    cursor: pointer;
+}
 
 #search img {
     width: 20px;
@@ -108,7 +117,6 @@
     padding: 8px;
     border: 0px
     outline: none;
-    float: right;
     cursor: pointer;
 }
 
