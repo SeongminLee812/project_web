@@ -135,6 +135,18 @@
         </div>
     </div>
 
+        <div>
+            <ul class="course_list">
+                {% for MoocAll in MoocAllList%}
+                <li>
+                    <a href="http://www.kmooc.kr/courses/{{ MoocAll.course_id }}/about" target="_blank">
+                    {{ MoocAll.name }} / {{ MoocAll.teachers }} / {{ MoocAll.org_name }} / 별점 : {{ MoocAll.star }}
+                    </a>
+                </li>
+                 {% endfor %}
+            </ul>
+        </div>
+
     <div id="footer" style="display: block;">
         <p id="innerfooter">
             <br>
