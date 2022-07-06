@@ -12,37 +12,49 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
     <style>
-        .course_list{
-            position: relative;
-            left: 80px;
-        }
-        .course_list a{
-            display: block;
-            height: 27px;
-            font-size: 15px;
-            color: #666666;
-            font-weight: normal;
+        #body {
+            with: 1200px
+            margin: auto;
+            font-family: 'Noto Sans KR', sans-serif;
             text-decoration: none;
-            border: none;
-            letter-spacing: -1px;
-            line-height: 1.5;
-            background: none;
-            margin: 3px;
-        }
-        .course_list a:hover{
-            color: cadetblue;
-        }
-        #visual{
-            height: 400px;
-            width: 600px;
         }
 
-        .clearfix{
-            text-align:center;
-            display:block;
-            width:1500px;
-            border:none;
-            float:auto;
+        table {
+            width: 1200px;
+            margin: auto;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-top: 1px solid #F7F7F7;
+            border-collapse: collapse;
+        }
+
+        .table_title {
+            width: 1200px;
+            margin: auto;
+            text-align: left;
+            font-size: 30px;
+            font-weight: 700;
+            color: #2763ba;
+        }
+
+        th, td {
+            padding: 15px;
+            color: black;
+            border-bottom: 1px solid #F7F7F7;
+        }
+
+        td a {
+            text-decoration: none;
+            color: #2763ba;
+            font-weight: 700;
+        }
+
+        th {
+            text-align: center;
+            background-color: #2763ba;
+            color: #FFFFFF;
         }
 
     </style>
@@ -84,7 +96,7 @@
      <br><br><br><br><br><br><br><br><br><br><br>
 
 
-    <div id="body" class="clearfix">
+    <div id="body">
 
         <span class="edwidth_1">
             <iframe id="inlineFrameExample"
@@ -103,19 +115,38 @@
 {#            src="{% static 'edwith_like_num_visual_0630_세원.html'%}">#}
 {#        </iframe>#}
 {#        </span>#}
-    </div>
 
-        <div>
-            <ul class="course_list">
-                {% for MoocAll in MoocAllList%}
-                <li>
-                    <a href="http://www.kmooc.kr/courses/{{ MoocAll.course_id }}/about" target="_blank">
-                    {{ MoocAll.name }} / {{ MoocAll.teachers }} / {{ MoocAll.org_name }} / 별점 : {{ MoocAll.star }}
-                    </a>
-                </li>
-                 {% endfor %}
-            </ul>
+
+        <div class="container">
+            <p class="table_title">K-MOOC 인기강좌</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>강좌명</th>
+                        <th>제공기관</th>
+                        <th>강사</th>
+                        <th>수강등록일</th>
+                        <th>상시수강</th>
+                        <th>분류</th>
+                        <th>평가</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for MoocAll in MoocAllList %}
+                    <tr>
+                        <td><a href="http://www.kmooc.kr/courses/{{ MoocAll.course_id }}/about" target="_blank"> {{ MoocAll.name }} </a></td>
+                        <td>{{ MoocAll.org_name }}</td>
+                        <td>{{ MoocAll.teachers }}</td>
+                        <td>{{ MoocAll.enrollment_start|date:'20y년 m월 d일' }}</td>
+                        <td>{% if MoocAll.audit_yn == 'Y' %} 상시수강 {% else %} 기간한정 {% endif %}</td>
+                        <td>{{ MoocAll.middle_classfy_name }}</td>
+                        <td>{{ MoocAll.star }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
+    </div>
 
 
     <div id="footer">
