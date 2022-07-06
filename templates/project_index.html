@@ -17,18 +17,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
-    .main_con { width: 100%; height: 100%; text-align: center; display: block; }
+    .body { width: 100%; height: 100%; text-align: center; display: block; }
     .main_con>ul { display: inline-block; width: 100%; }
     .main_con>ul.site>li { width: 33.33%; }
+
     .main_con>ul>li { position: relative; display: table-cell; }
-    .main_con>ul>.kmooc>li>a { position: relative; display: block; padding: 50px 0 30px 100px; height: 400px overflow: hidden; }
-    .main_con>ul>.kocw>li>a { position: relative; display: block; padding: 50px 0 30px 30px; height: 400px overflow: hidden; }
-    .main_con>ul>.edwith>li>a { position: relative; display: block; padding: 50px 30px 30px 30px; height: 400px overflow: hidden; }
+    .main_con>ul>.kmooc>li>a { position: relative; text-align: center; display: block; padding: 50px 0 30px 100px; height: 400px overflow: hidden; }
+    .main_con>ul>.kocw>li>a { position: relative; text-align: center; display: block; padding: 50px 0 30px 30px; height: 400px overflow: hidden; }
+    .main_con>ul>.edwith>li>a { position: relative; text-align: center; display: block; padding: 50px 30px 30px 30px; height: 400px overflow: hidden; }
+
     a { text-decoration: none; color: black; }
     .kmooc { float: left; width: auto; solid; }
     .kocw { float: left; margin-left; width: auto; solid; }
     .edwith { float: left; margin-left; width: auto; solid; }
 
+    .pop { display: block; }
+    .pop>.kmooc_pop { position: relative; padding: 100px 75px 50px 100px; overflow: hidden; }
+    .pop>.kocw_pop { position: relative; padding: 100px 75px 50px 100px; overflow: hidden; }
+    .pop>.edwith_pop { position: relative; padding: 100px 75px 50px 100px; overflow: hidden; }
+    .pop>.kmooc_pop { float: left; width: auto; solid; }
+    .pop>.kocw_pop { float: left; margin-left; width: auto; solid; }
+    .pop>.edwith_pop { float: left; margin-left; width: auto; solid; }
     </style>
 
 
@@ -73,6 +82,7 @@
     <div class="body">
         <div class="main_con">
             <ul class="site">
+
                 <div class="kmooc">
 	                <li>
 		                <a href="http://www.kmooc.kr/">
@@ -89,7 +99,7 @@
                                 </p>
                     	    </div>
                         </a>
-	                </li>
+                    </li>
                 </div>
 
                 <div class="kocw">
@@ -132,6 +142,139 @@
                     </li>
                 </div>
             </ul>
+        </div>
+
+        <div class="visual">
+            <span>
+                <iframe src="{% static 'keyword_visual.html'%}"
+                width="900px"
+                height="450px"
+                frameborder=0>
+                </iframe>
+            </span>
+        </div>
+
+        <div class="pop" style="display: block">
+           <div class="kmooc_pop">
+               <span class="popular" style="font-size: 27px; color: black; font-family: 'IBM Plex Sans KR'";>
+                   <br>
+                   ㅤ
+                   <br>
+               </span>
+
+               <li>
+                   <a href="http://www.kmooc.kr/courses/course-v1:KHUk+SW_KH003+2022_T1_1/about">
+                       <img src="{% static 'image/test04.png' %}" width="200px" height="auto">
+                       <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'";>
+                           <br>
+                           TOP 1 디지털 전환과 4차 산업혁명
+                           <br>
+                           ㅤ
+                       </p>
+                   </a>
+
+                   <a href="http://www.kmooc.kr/courses/course-v1:KHUk+SW_KH003+2022_T1_1/about">
+                       <img src="{% static 'image/test01.jpg' %}" width="250px" height="auto">
+                       <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'";>
+                           <br>
+                           TOP 1 디지털 전환과 4차 산업혁명
+                           <br>
+                           ㅤ
+                       </p>
+                   </a>
+
+                   <a href="http://www.kmooc.kr/courses/course-v1:KHUk+SW_KH003+2022_T1_1/about">
+                       <img src="{% static 'image/test01.jpg' %}" width="250px" height="auto">
+                       <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'";>
+                           <br>
+                           TOP 1 디지털 전환과 4차 산업혁명
+                           <br>
+                           ㅤ
+                       </p>
+                   </a>
+               </li>
+           </div>
+
+            <div class="kocw_pop">
+               <span class="popular" style="font-size: 27px; color: black; font-family: 'IBM Plex Sans KR'";>
+                   <br>
+                   ㅤ
+                   <br>
+               </span>
+
+               <li>
+                   <a href="http://www.kmooc.kr/courses/course-v1:KHUk+SW_KH003+2022_T1_1/about">
+                       <img src="{% static 'image/test01.jpg' %}" width="250px" height="auto">
+                       <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'";>
+                           <br>
+                           TOP 1 디지털 전환과 4차 산업혁명
+                           <br>
+                           ㅤ
+                       </p>
+                   </a>
+
+                   <a href="http://www.kmooc.kr/courses/course-v1:KHUk+SW_KH003+2022_T1_1/about">
+                       <img src="{% static 'image/test01.jpg' %}" width="250px" height="auto">
+                       <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'";>
+                           <br>
+                           TOP 1 디지털 전환과 4차 산업혁명
+                           <br>
+                           ㅤ
+                       </p>
+                   </a>
+
+                   <a href="http://www.kmooc.kr/courses/course-v1:KHUk+SW_KH003+2022_T1_1/about">
+                       <img src="{% static 'image/test01.jpg' %}" width="250px" height="auto">
+                       <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'";>
+                           <br>
+                           TOP 1 디지털 전환과 4차 산업혁명
+                           <br>
+                           ㅤ
+                       </p>
+                   </a>
+               </li>
+           </div>
+
+            <div class="edwith_pop">
+               <span class="popular" style="font-size: 27px; color: black; font-family: 'IBM Plex Sans KR'";>
+                   <br>
+                   ㅤ
+                   <br>
+               </span>
+
+               <li>
+                   <a href="http://www.kmooc.kr/courses/course-v1:KHUk+SW_KH003+2022_T1_1/about">
+                       <img src="{% static 'image/test01.jpg' %}" width="250px" height="auto">
+                       <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'";>
+                           <br>
+                           TOP 1 디지털 전환과 4차 산업혁명
+                           <br>
+                           ㅤ
+                       </p>
+                   </a>
+
+                   <a href="http://www.kmooc.kr/courses/course-v1:KHUk+SW_KH003+2022_T1_1/about">
+                       <img src="{% static 'image/test01.jpg' %}" width="250px" height="auto">
+                       <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'";>
+                           <br>
+                           TOP 1 디지털 전환과 4차 산업혁명
+                           <br>
+                           ㅤ
+                       </p>
+                   </a>
+
+                   <a href="http://www.kmooc.kr/courses/course-v1:KHUk+SW_KH003+2022_T1_1/about">
+                       <img src="{% static 'image/test01.jpg' %}" width="250px" height="auto">
+                       <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'";>
+                           <br>
+                           TOP 1 디지털 전환과 4차 산업혁명
+                           <br>
+                           ㅤ
+                       </p>
+                   </a>
+               </li>
+           </div>
+
         </div>
     </div>
 
