@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CS 공개강좌 분석 포털</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/css01.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}" type="text/css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,6 +46,7 @@
             color: cadetblue;
 
      }
+
 
      #header3 {
         display: flex;
@@ -160,17 +161,19 @@
         </span>
     </div>
 
+
      <div>
            <ul class="course_list">
              {% for EdwithAll in EdwithAllList %}
                <li>
                 <a href="{{ EdwithAll.href }}" >
-                {{ EdwithAll.num }} / {{ EdwithAll.title }} / 운영기간 : {{ EdwithAll.date }} / 수강생수 : {{ EdwithAll.student_num }}
+                {{ EdwithAll.title }} / {{ EdwithAll.lecturer }} / {{ EdwithAll.org }} / 운영기간 : {{ EdwithAll.date }} / 수강생수 : {{ EdwithAll.student_num }}
                 </a>
                 </li>
             {% endfor %}
             </ul>
      </div>
+
 
 
 
