@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CS 공개강좌 분석 포털</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/css01.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
@@ -110,7 +110,7 @@
             {% for KocwAll in KocwAllList%}
             <li>
                 <a href="{{ KocwAll.course_url }}" target="_blank">
-                {{ KocwAll.num }} / {{ KocwAll.course_title }} / 조회수 : {{ KocwAll.view_count }}
+                {{ KocwAll.course_title }} / {{ KocwAll.lecturer }} / {{ KocwAll.provider }} / 조회수 : {{ KocwAll.view_count }}
                 </a>
             </li>
             {% endfor %}

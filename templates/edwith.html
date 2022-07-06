@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CS 공개강좌 분석 포털</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/css01.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}" type="text/css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,10 +21,12 @@
         background-color: ;
         float: auto;
         display:block;
+
      }
+
      .course_list{
         position: relative;
-        left: 80px;
+        left:500px;
      }
      .course_list a{
         display: block;
@@ -38,10 +40,13 @@
         line-height: 1.5;
         background: none;
         margin: 3px;
+
      }
      .course_list a:hover{
             color: cadetblue;
+
      }
+
 
      #header3 {
         display: flex;
@@ -51,6 +56,7 @@
         margin: auto;
         text-align: center;
         background-color: #FFFFFF;
+
      }
 
      #search {
@@ -142,17 +148,32 @@
             src="{% static 'edwith_like_num_visual_0630_세원.html'%}">
         </iframe>
         </span>
+
+
+        <span class="edwith_2">
+            <iframe id="inlineFrameExample"
+            title="Inline Frame Example"
+                    width="800"
+                    height="600"
+                    frameborder="0"
+            src="{% static 'edwith_db_visual_산점도_0705_세원.html'%}">
+             </iframe>
+        </span>
     </div>
 
-     <ul class="course_list">
-         {% for EdwithAll in EdwithAllList %}
-        <li>
-            <a href="{{ EdwithAll.href }}" >
-            {{ EdwithAll.num }} / {{ EdwithAll.title }} / 운영기간 : {{ EdwithAll.date }} / 수강생수 : {{ EdwithAll.student_num }}
-            </a>
-        </li>
-         {% endfor %}
-      </ul>
+
+     <div>
+           <ul class="course_list">
+             {% for EdwithAll in EdwithAllList %}
+               <li>
+                <a href="{{ EdwithAll.href }}" >
+                {{ EdwithAll.title }} / {{ EdwithAll.lecturer }} / {{ EdwithAll.org }} / 운영기간 : {{ EdwithAll.date }} / 수강생수 : {{ EdwithAll.student_num }}
+                </a>
+                </li>
+            {% endfor %}
+            </ul>
+     </div>
+
 
 
 
@@ -172,7 +193,7 @@
 
 </body>
 
-</body>
+
 </html>
 
 

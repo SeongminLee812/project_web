@@ -6,9 +6,23 @@ from kocw.models import KocwAllList
 from edwith.models import EdwithAllList
 from django.db.models import Q
 import pandas as pd
+import datetime
 
 def index(request):
-    return render(request, 'project_index.html')
+    today = datetime.datetime.now()
+    print(today)
+    course_list = MoocAllList.objects.filter((Q(fourth_industry_yn='y')|Q(ai_sec_yn='y'))&Q(middle_classfy='comp')&(Q(audit_yn='y')|Q(enrollment_end__gte=today))).order_by('-star')  #or 조건문
+    # 중복제거 코드
+    # 판다스 데이터 프레임 이용
+    df = pd.DataFrame(list(course_list.values()))
+    # 이름(name 컬럼의 값)이 같은 값 제거하면서 첫번째 값만 남기기
+    df = df.drop_duplicates(subset="name", keep="first")
+    not_dup_course_list = list()
+    # 10개만 뽑을 거니까 10번만 반복해서 list에 추가
+    for i in range(3):
+        not_dup_course_list.append(df.iloc[i])
+    course_kmooc = not_dup_course_list
+    return render(request, 'project_index.html', {'MoocAllList':course_kmooc})
 
 # 테스트
 def test(request):

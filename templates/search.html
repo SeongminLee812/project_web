@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CS 공개강좌 분석 포털</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/css01.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}" type="text/css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,82 +14,51 @@
 
 
     <style>
-        #searchResult table{
-            margin-left: 30px;
-            margin-bottom: 10px;
-            border: 0px;
-
-        }
-        #searchResult h2{
-            color: #2763ba;
-            margin-left: 20px;
-        }
-        #searchResult a{
-            font-size: 20px;
-            color: black;
-            font-weight: bold;
+        #body {
+            with: 1200px
+            margin: auto;
+            font-family: 'Noto Sans KR', sans-serif;
             text-decoration: none;
-            border: none;
-            letter-spacing: -1px;
-            line-height: 1.5;
-            background: none;
-        }
-        #searchResult a:hover{
-            color: cadetblue;
-        }
-        #searchResult div{
-            padding: 11px 20px 15px;
-        }
-        #searchResult ul{
-            list-style: none;
         }
 
-        #header3 {
-            display: flex;
+        table {
             width: 1200px;
-            height: 120px;
-            line-height: 60px;
             margin: auto;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-top: 1px solid #F7F7F7;
+            border-collapse: collapse;
+        }
+
+        .table_title {
+            width: 1200px;
+            margin: auto;
+            text-align: left;
+            font-size: 30px;
+            font-weight: 700;
+            color: #2763ba;
+        }
+
+        th, td {
+            padding: 15px;
+            color: black;
+            border-bottom: 1px solid #F7F7F7;
+        }
+
+        td a {
+            text-decoration: none;
+            color: #2763ba;
+            font-weight: 700;
+        }
+
+        th {
             text-align: center;
-            background-color: #FFFFFF;
+            background-color: #2763ba;
+            color: #FFFFFF;
         }
 
-        #search {
-            position: relative;
-            height: 40px;
-            line-height: 40px;
-            width: 400px;
-            margin: auto;
-            border: 3px solid #F7F7F7;
-        }
-
-        #search input {
-            font-size: 16px;
-            width: 325px;
-            padding: 10px;
-            border: 0px;
-            outline: none;
-            float: left;
-        }
-
-        #search img {
-            position absolute;
-            width: 20px;
-            height: 20px;
-            margin: auto;
-            padding: 10px;
-            border: 0px
-            outline: none;
-            float: right;
-            cursor: pointer;
-        }
-        .clearfix{
-            text-align:center;
-            display:block;
-            width:1500px;
-            border:none;
-            float:auto;
-        }
     </style>
 
 </head>
@@ -124,128 +93,91 @@
             </div>
         </div>
     </div>
-    <br><br><br><br><br><br><br><br><br><br>
 
-    <div id="body" class="clearfix">
-        <div id="searchResult">
+    <div id="body">
+            <div class="container">
+                <p class="table_title">kmooc 강좌( {{ kmooc_num }} )</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>강좌명</th>
+                            <th>제공기관</th>
+                            <th>강사</th>
+                            <th>수강등록일</th>
+                            <th>상시수강</th>
+                            <th>분류</th>
+                            <th>평가</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for searchResultItem in searchResultKmooc %}
+                        <tr>
+                            <td><a href="http://www.kmooc.kr/courses/{{ searchResultItem.course_id }}/about" target="_blank"> {{ searchResultItem.name }} </a></td>
+                            <td>{{ searchResultItem.org_name }}</td>
+                            <td>{{ searchResultItem.teachers }}</td>
+                            <td>{{ searchResultItem.enrollment_start|date:'20y년 m월 d일' }}</td>
+                            <td>{% if searchResultItem.audit_yn == 'Y' %} 상시수강 {% else %} 기간한정 {% endif %}</td>
+                            <td>{{ searchResultItem.middle_classfy_name }}</td>
+                            <td>{{ searchResultItem.star }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
 
-            <div>
-                <h2>kmooc 강좌( {{ kmooc_num }} )</h2>
-                <ul>
-                    {% for searchResultItem in searchResultKmooc %}
-                    <li>
-                        <table>
-                            <col width="300px">
-                            <tr>
-                                <td>강좌명</td>
-                                <td><a href="http://www.kmooc.kr/courses/{{ searchResultItem.course_id }}/about" target="_blank"> {{ searchResultItem.name }} </a></td>
-                            </tr>
-                            <tr>
-                                <td>제공기관</td>
-                                <td>{{ searchResultItem.org_name }}</td>
-                            </tr>
-                            <tr>
-                                <td>강사</td>
-                                <td>{{ searchResultItem.teachers }}</td>
-                            </tr>
-                            <tr>
-                                <td>운영기간</td>
-                                <td>{{ searchResultItem.enrollment_start }}</td>
-                            </tr>
-                            <tr>
-                                <td>분류</td>
-                                <td>{{ searchResultItem.middle_classfy_name }}</td>
-                            </tr>
-                            <tr>
-                                <td>평가</td>
-                                <td>{{ searchResultItem.star }}</td>
-                            </tr>
-                        </table>
-                    </li>
-                {% endfor %}
-                </ul>
+                <p class="table_title">kocw 강좌( {{ kocw_num }} )</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>강좌명</th>
+                            <th>제공기관</th>
+                            <th>강사</th>
+                            <th>분류</th>
+                            <th>학기</th>
+                            <th>조회수</th>
+                            <th>평가</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for searchResultItem in searchResultKocw %}
+                        <tr>
+                            <td><a href="{{ searchResultItem.course_url }}" target="_blank"> {{ searchResultItem.course_title }} </a></td>
+                            <td>{{ searchResultItem.provider }}</td>
+                            <td>{{ searchResultItem.lecturer }}</td>
+                            <td>{{ searchResultItem.taxon }}</td>
+                            <td>{{ searchResultItem.term }}</td>
+                            <td>{{ searchResultItem.view_count }}</td>
+                            <td>{{ searchResultItem.popular_score }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <p class="table_title">edwith 강좌({{ edwith_num }})</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>강좌명</th>
+                            <th>제공기관</th>
+                            <th>강사</th>
+                            <th>운영기간</th>
+                            <th>수강생수</th>
+                            <th>좋아요수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for searchResultItem in searchResultEdwith %}
+                        <tr>
+                            <td><a href="{{ searchResultItem.href }}" target="_blank"> {{ searchResultItem.title }} </a></td>
+                            <td>{{ searchResultItem.org }}</td>
+                            <td>{{ searchResultItem.lecturer }}</td>
+                            <td>{{ searchResultItem.date }}</td>
+                            <td>{{ searchResultItem.student_num }}</td>
+                            <td>{{ searchResultItem.like_num }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
-
-            <div>
-
-                <h2>kocw 강좌( {{ kocw_num }} )</h2>
-                    <ul>
-                    {% for searchResultItem in searchResultKocw %}
-                    <li>
-                        <table>
-                            <col width="300px">
-                            <tr>
-                                <td>강좌명</td>
-                                <td><a href="{{ searchResultItem.course_url }}" target="_blank"> {{ searchResultItem.course_title }} </a></td>
-                            </tr>
-                            <tr>
-                                <td>제공기관</td>
-                                <td>{{ searchResultItem.provider }}</td>
-                            </tr>
-                            <tr>
-                                <td>강사</td>
-                                <td>{{ searchResultItem.lecturer }}</td>
-                            </tr>
-                            <tr>
-                                <td>분류</td>
-                                <td>{{ searchResultItem.taxon }}</td>
-                            </tr>
-                            <tr>
-                                <td>학기</td>
-                                <td>{{ searchResultItem.term }}</td>
-                            </tr>
-                            <tr>
-                                <td>조회수</td>
-                                <td>{{ searchResultItem.view_count }}</td>
-                            </tr>
-                            <tr>
-                                <td>평가</td>
-                                <td>{{ searchResultItem.popular_score }}</td>
-                            </tr>
-                        </table>
-                    </li>
-                {% endfor %}
-                </ul>
-            </div>
-
-
-            <div>
-                <h2>edwith 강좌({{ edwith_num }})</h2>
-                <ul>
-                    {% for searchResultItem in searchResultEdwith %}
-                    <li>
-                        <table>
-                            <col width="300px">
-                            <tr>
-                                <td>강좌명</td>
-                                <td><a href="{{ searchResultItem.href }}" target="_blank"> {{ searchResultItem.title }} </a></td>
-                            </tr>
-                            <tr>
-                                <td>제공기관</td>
-                                <td>{{ searchResultItem.org }}</td>
-                            </tr>
-                            <tr>
-                                <td>강사</td>
-                                <td>{{ searchResultItem.lecturer }}</td>
-                            </tr>
-                            <tr>
-                                <td>운영기간</td>
-                                <td>{{ searchResultItem.date }}</td>
-                            </tr>
-                            <tr>
-                                <td>수강생 수</td>
-                                <td>{{ searchResultItem.student_num }}</td>
-                            </tr>
-                            <tr>
-                                <td>좋아요 수</td>
-                                <td>{{ searchResultItem.like_num }}</td>
-                            </tr>
-                        </table>
-                    </li>
-                {% endfor %}
-                </ul>
-            </div>
-        </div>
     </div>
 
     <div id="footer">
