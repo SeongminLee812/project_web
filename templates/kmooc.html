@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CS 공개강좌 분석 포털</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/css01.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}" type="text/css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
             position: relative;
             left: 80px;
         }
-        a{
+        .course_list a{
             display: block;
             height: 27px;
             font-size: 15px;
@@ -29,13 +29,14 @@
             background: none;
             margin: 3px;
         }
-        a:hover{
+        .course_list a:hover{
             color: cadetblue;
         }
         #visual{
             height: 400px;
             width: 600px;
         }
+
         .clearfix{
             text-align:center;
             display:block;
@@ -44,11 +45,10 @@
             float:auto;
         }
 
-
     </style>
 </head>
 <body>
-    <div>
+    <div class="navbar">
         <div id="header1">
             <p id="header1_munu">
                 <span>로그인</span>
@@ -59,7 +59,7 @@
         </div>
         <div id="header2">
             <span id="title">
-                <h2>CS 공개강좌 분석 포털</h2>
+                <h2 onclick="location.href='/'">CS 공개강좌 분석 포털</h2>
             </span>
             <span id="header2_menu">
                 <span onclick="location.href='/kmooc/'"><b>CS in K-MOOC</b></span>
@@ -79,23 +79,20 @@
             </div>
         </div>
 
-{#        <div id="header3">#}
-{#            <span id="search">#}
-{#                <input type="search" placeholder="강좌 검색 키워드 입력">#}
-{#                <img src="{% static 'image/ic_search.png' %}" alt="검색이미지">#}
-{#            </span>#}
-{#        </div>#}
+
     </div>
+     <br><br><br><br><br><br><br><br><br><br><br>
+
 
     <div id="body" class="clearfix">
 
         <span class="edwidth_1">
             <iframe id="inlineFrameExample"
             title="Inline Frame Example"
-            width="750"
-            height="550"
+            width="1000"
+            height="700"
             frameborder="0"
-            src="{% static 'kmooc_star_visual_0701_인덕.html'%}">
+            src="{% static 'kmooc_star_visual_0706_인덕.html'%}">
         </iframe>
         </span>
 {#        <span class="edwidth_1">#}
@@ -113,7 +110,7 @@
                 {% for MoocAll in MoocAllList%}
                 <li>
                     <a href="http://www.kmooc.kr/courses/{{ MoocAll.course_id }}/about" target="_blank">
-                    {{ MoocAll.num }} / {{ MoocAll.name }} / 강의 시작일 : {{ MoocAll.enrollment_start }} / 별점 : {{ MoocAll.star }}
+                    {{ MoocAll.name }} / {{ MoocAll.teachers }} / {{ MoocAll.org_name }} / 별점 : {{ MoocAll.star }}
                     </a>
                 </li>
                  {% endfor %}
@@ -133,7 +130,6 @@
             <br>
         </p>
     </div>
-
 
 
 </body>

@@ -6,7 +6,7 @@
 #header1 {
     background-color: #F7F7F7;
 }
-/* 천번째 div tag에 class="navbar" 추가*/
+/* 첫번째 div tag에 class="navbar" 추가*/
 .navbar {
     position: fixed;
     top: 0px;
@@ -25,7 +25,6 @@
     margin: auto;
     background-color: #F7F7F7;
     text-align: right;
-    cursor: pointer;
 }
 
 #header1 span {
@@ -56,6 +55,7 @@
     width: 300px;
     height: 40px;
     line-height: 40px;
+    cursor: pointer;
 }
 
 #header2_menu {
@@ -68,28 +68,56 @@
 #header2_menu > span {
     display: flex;
     margin: auto;
-    cursor: pointer;
     line-height: 40px;
     font-weight: bold;
-}
- 
-#header3 {
-    width: 1200px;
-    height: 100px;
-    margin: auto;
-    text-align: center;
-}
-
-#header3 > span {
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
-    margin: auto;
     cursor: pointer;
 }
 
-#header3 > input {
-    transform: scale(2)
+#header3 {
+    display: flex;
+    width: 1200px;
+    height: 120px;
+    line-height: 60px;
+    margin: auto;
+    text-align: center;
+    background-color: #FFFFFF;
+}
+
+#search {
+    height: 40px;
+    line-height: 40px;
+    width: 400px;
+    margin: auto;
+    padding: 0px;
+    border: 3px solid #F7F7F7;
+}
+
+#search input {
+    font-size: 16px;
+    width: 330px;
+    padding: 10px;
+    border: 0px;
+    outline: none;
+    float: left;
+}
+#search button {
+    width: 50px;
+    margin: 0;
+    border: none;
+    outline: none;
+    float: right;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+#search img {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 8px;
+    border: 0px
+    outline: none;
+    cursor: pointer;
 }
 
 #body {

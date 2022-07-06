@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CS 공개강좌 분석 포털</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/css01.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}" type="text/css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,8 +38,8 @@
     .pop>.kmooc_pop { float: left; width: auto; solid; }
     .pop>.kocw_pop { float: left; margin-left; width: auto; solid; }
     .pop>.edwith_pop { float: left; margin-left; width: auto; solid; }
-
     </style>
+
 
 </head>
 <body>
@@ -54,10 +54,12 @@
         </div>
         <div id="header2">
             <span id="title">
+
                 <a href="http://127.0.0.1:8000/" class="logo">
                     <h2>CS 공개강좌 분석 포털
                     </h2>
                 </a>
+
             </span> 
             <span id="header2_menu">
                 <span onclick="location.href='/kmooc/'">CS in K-MOOC</span>
@@ -68,12 +70,12 @@
               
         </div>
         <div id="header3">
-            <span id="search">
+            <div id="search">
                 <form action="/search/" method="post"> {% csrf_token %}
                     <input type="search" placeholder="강좌 검색 키워드 입력" name="q">
                     <button type="submit"><img src="{% static 'image/ic_search.png' %}" alt="검색이미지"></button>
                 </form>
-            </span>
+            </div>
         </div>
     </div>
 
