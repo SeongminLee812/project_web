@@ -6,6 +6,7 @@ from kocw.models import KocwAllList
 from edwith.models import EdwithAllList
 from django.db.models import Q
 import pandas as pd
+import datetime
 
 def index(request):
     return render(request, 'project_index.html')
