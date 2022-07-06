@@ -110,7 +110,7 @@
                 {% for MoocAll in MoocAllList%}
                 <li>
                     <a href="http://www.kmooc.kr/courses/{{ MoocAll.course_id }}/about" target="_blank">
-                    {{ MoocAll.num }} / {{ MoocAll.name }} / 강의 시작일 : {{ MoocAll.enrollment_start }} / 별점 : {{ MoocAll.star }}
+                    {{ MoocAll.name }} / {{ MoocAll.teachers }} / {{ MoocAll.org_name }} / 별점 : {{ MoocAll.star }}
                     </a>
                 </li>
                  {% endfor %}
