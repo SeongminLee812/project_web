@@ -30,26 +30,53 @@
         font-weight: 500;
         }
 
-        .course_list{
-            position: relative;
-            left: 80px;
-        }
-        .course_list a{
-            display: block;
-            height: 27px;
-            font-size: 15px;
-            color: #666666;
-            font-weight: normal;
+        #body {
+            with: 1200px
+            margin: auto;
+            font-family: 'Noto Sans KR', sans-serif;
             text-decoration: none;
-            border: none;
-            letter-spacing: -1px;
-            line-height: 1.5;
-            background: none;
-            margin: 3px;
         }
-        .course_list a:hover{
-            color: cadetblue;
+
+        table {
+            width: 1200px;
+            margin: auto;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-top: 1px solid #F7F7F7;
+            border-collapse: collapse;
         }
+
+        .table_title {
+            width: 1200px;
+            margin: auto;
+            text-align: left;
+            font-size: 30px;
+            font-weight: 700;
+            color: #2763ba;
+        }
+
+        th, td {
+            padding: 15px;
+            color: black;
+            border-bottom: 1px solid #F7F7F7;
+            text-align: center;
+        }
+
+        td a {
+            text-decoration: none;
+            color: #2763ba;
+            font-weight: 700;
+        }
+
+        th {
+            text-align: center;
+            background-color: #2763ba;
+            color: #FFFFFF;
+        }
+
+    </style>
 
 
     </style>
@@ -105,16 +132,34 @@
         </span>
     </div>
 
-    <div>
-        <ul class="course_list">
-            {% for KocwAll in KocwAllList%}
-            <li>
-                <a href="{{ KocwAll.course_url }}" target="_blank">
-                {{ KocwAll.course_title }} / {{ KocwAll.lecturer }} / {{ KocwAll.provider }} / 조회수 : {{ KocwAll.view_count }}
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
+    <div class="container">
+        <p class="table_title">KOCW 인기강좌 TOP10</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>강좌명</th>
+                            <th>제공기관</th>
+                            <th>강사</th>
+                            <th>분류</th>
+                            <th>학기</th>
+                            <th>조회수</th>
+                            <th>평가</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for KocwAll in KocwAllList %}
+                        <tr>
+                            <td><a href="{{ KocwAll.course_url }}" target="_blank"> {{ KocwAll.course_title }} </a></td>
+                            <td>{{ KocwAll.provider }}</td>
+                            <td>{{ KocwAll.lecturer }}</td>
+                            <td>{{ KocwAll.taxon }}</td>
+                            <td>{{ KocwAll.term }}</td>
+                            <td>{{ KocwAll.view_count }}</td>
+                            <td>{{ KocwAll.popular_score }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
     </div>
 
     <div id="footer">
