@@ -24,6 +24,8 @@
 
      }
 
+     /*
+
      .course_list{
         position: relative;
         left:500px;
@@ -42,10 +44,11 @@
         margin: 3px;
 
      }
+
      .course_list a:hover{
             color: cadetblue;
 
-     }
+     }  */
 
 
      #header3 {
@@ -88,6 +91,52 @@
         float: right;
         cursor: pointer;
      }
+
+    #body {
+            with: 1200px
+            margin: auto;
+            font-family: 'Noto Sans KR', sans-serif;
+            text-decoration: none;
+        }
+
+     table {
+            width: 1200px;
+            margin: auto;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-top: 1px solid #F7F7F7;
+            border-collapse: collapse;
+        }
+
+        .table_title {
+            width: 1200px;
+            margin: auto;
+            text-align: left;
+            font-size: 30px;
+            font-weight: 700;
+            color: #2763ba;
+        }
+
+        th, td {
+            padding: 15px;
+            color: black;
+            border-bottom: 1px solid #F7F7F7;
+        }
+
+
+        td a {
+            text-decoration: none;
+            color: #2763ba;
+            font-weight: 700;
+        }
+
+        th {
+            text-align: center;
+            background-color: #2763ba;
+            color: #FFFFFF;
+        }
 
     </style>
 
@@ -160,8 +209,42 @@
              </iframe>
         </span>
     </div>
+    <div id="body">
+        <div class="container">
+           <p class="table_title">edwith 인기 강좌 TOP10 </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>강좌명</th>
+                            <th>제공기관</th>
+                            <th>강사</th>
+                            <th>운영기간</th>
+                            <th>수강생수</th>
+                            <th>좋아요수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for EdwithAll in EdwithAllList %}
+                        <tr>
+                            <td><a href="{{ EdwithAll.href }}" target="_blank"> {{ EdwithAll.title }} </a></td>
+                            <td>{{ EdwithAll.org }}</td>
+                            <td>{{ EdwithAll.lecturer }}</td>
+                            <td>{{ EdwithAll.date }}</td>
+                            <td>{{ EdwithAll.student_num }}</td>
+                            <td>{{ EdwithAll.like_num }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+        </div>
+    </div>
 
 
+
+
+
+
+    <!--
      <div>
            <ul class="course_list">
              {% for EdwithAll in EdwithAllList %}
@@ -172,7 +255,7 @@
                 </li>
             {% endfor %}
             </ul>
-     </div>
+     </div>  -->
 
 
 
@@ -192,6 +275,8 @@
     </div>
 
 </body>
+
+
 
 
 </html>

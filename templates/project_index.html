@@ -35,9 +35,13 @@
     .pop>.kmooc_pop { position: relative; padding: 100px 75px 50px 100px; overflow: hidden; }
     .pop>.kocw_pop { position: relative; padding: 100px 75px 50px 100px; overflow: hidden; }
     .pop>.edwith_pop { position: relative; padding: 100px 75px 50px 100px; overflow: hidden; }
-    .pop>.kmooc_pop { float: left; width: auto; solid; }
-    .pop>.kocw_pop { float: left; margin-left; width: auto; solid; }
-    .pop>.edwith_pop { float: left; margin-left; width: auto; solid; }
+    .pop>.kmooc_pop { float: left; width: 300px; solid; }
+    .pop>.kocw_pop { float: left; margin-left; width: 300px; solid; }
+    .pop>.edwith_pop { float: left; margin-left; width: 300px; solid; }
+
+    .pop>ul { text-align: center; }
+
+    ul{list-style:none;}
     </style>
 
 
@@ -144,7 +148,7 @@
             </ul>
         </div>
 
-        <div class="visual">
+        <div class="visual" style="display: block;">
             <span>
                 <iframe src="{% static 'keyword_visual.html'%}"
                 width="900px"
@@ -154,164 +158,207 @@
             </span>
         </div>
 
-        <div class="pop" style="display: block">
-           <div class="kmooc_pop">
-               <span class="popular" style="font-size: 27px; color: black; font-family: 'IBM Plex Sans KR'";>
-                   <br>
+
+        <ul>
+            <div class="pop" style="display: block;">
+               <div class="kmooc_pop">
+                   <span class="popular" style="font-size: 27px; color: black; font-family: 'IBM Plex Sans KR' marker: hidden";>
+                       <br>
+                       ㅤ
+                       <br>
+                   </span>
+
+                   <li>
+                       <ul>
+                            <a href="http://www.kmooc.kr/courses/{{ moocpop01.course_id }}/about">
+                                <img src="{% static 'image/test03.png' %}" width="40px" height="auto" >
+                                <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR';" >
+                                   <br>
+                                    [TOP 1]
+                                    <br>
+                                   {{ moocpop01.name }}
+                                    <br>
+                                </p>ㅤ
+                            </a>
+                       </ul>
+                   </li>
+
+                   <li>
+                       <ul>
+                           <a href="http://www.kmooc.kr/courses/{{ moocpop02.course_id }}/about">
+                               <img src="{% static 'image/test03.png' %}" width="40px" height="auto" >
+                               <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'"; >
+                                   <br>
+                                   [TOP 2]
+                                   <br>
+                                   {{ moocpop02.name }}
+                               </p>
+                           </a>
+                       </ul>
+                    </li>
                    ㅤ
-                   <br>
-               </span>
+                   <li>
+                       <ul>
+                           <a href="http://www.kmooc.kr/courses/{{ moocpop03.course_id }}/about">
+                               <img src="{% static 'image/test03.png' %}" width="40px" height="auto" >
+                               <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'">
+                                   <br>
+                                   [TOP 3]
+                                   <br>
+                                   {{ moocpop03.name }}
+                               </p>
+                           </a>
+                       </ul>
+                   </li>
 
-               <li>
-                   <a href="http://www.kmooc.kr/courses/{{ moocpop01.course_id }}/about">
-                       <img src="{% static 'image/test04.png' %}" width="200px" height="auto">
-                       <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'";>
-                           <br>
-                           {{ moocpop01.name }}
-                           <br>
-                           ㅤ
-                       </p>
-                   </a>
+               </div>
 
-                   <a href="http://www.kmooc.kr/courses/{{ moocpop02.course_id }}/about">
-                       <img src="{% static 'image/test01.jpg' %}" width="250px" height="auto">
-                       <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'";>
-                           <br>
-                           {{ moocpop02.name }}
-                           <br>
-                           ㅤ
-                       </p>
-                   </a>
+                <div class="kocw_pop" style="display: block">
+                   <span class="popular" style="font-size: 27px; color: black; font-family: 'IBM Plex Sans KR'; marker: hidden";>
+                       인기 강좌
+                       <br>ㅤ
+                   </span>
 
-                   <a href="http://www.kmooc.kr/courses/{{ moocpop03.course_id }}/about">
-                       <img src="{% static 'image/test01.jpg' %}" width="250px" height="auto">
-                       <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'";>
-                           <br>
-                           {{ moocpop03.name }}
-                           <br>
-                           ㅤ
-                       </p>
-                   </a>
-               </li>
-           </div>
+                   <li>
+                       <ul>
+                           <a href="{{ kocwpop01.course_url }}">
+                               <img src="{% static 'image/test03.png' %}" width="40px" height="auto">
+                               <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR';" >
+                                   <br>
+                                   [TOP 1]
+                                   <br>
+                                   {{ kocwpop01.course_title }}
+                                   <br>
+                                   ㅤ
+                               </p>
+                           </a>
+                       </ul>
+                   </li>
 
-            <div class="kocw_pop">
-               <span class="popular" style="font-size: 27px; color: black; font-family: 'IBM Plex Sans KR'";>
-                   <br>
-                   ㅤ
-                   <br>
-               </span>
+                    <li>
+                        <ul>
+                           <a href="{{ kocwpop02.course_url }}">
+                               <img src="{% static 'image/test03.png' %}" width="40px" height="auto">
+                               <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR';">
+                                   <br>
+                                   [TOP 2]
+                                   <br>
+                                   {{ kocwpop02.course_title }}
+                                   <br>
+                                   ㅤ
+                               </p>
+                           </a>
+                        </ul>
+                    </li>
 
-               <li>
-                   <a href="{{ kocwpop01.course_url }}">
-                       <img src="{% static 'image/test01.jpg' %}" width="250px" height="auto">
-                       <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'";>
-                           <br>
-                           {{ kocwpop01.course_title }}
-                           <br>
-                           ㅤ
-                       </p>
-                   </a>
+                    <li>
+                        <ul>
+                           <a href="{{ kocwpop03.course_url }}">
+                               <img src="{% static 'image/test03.png' %}" width="40px" height="auto" >
+                               <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'; ">
+                                   <br>
+                                   [TOP 3]
+                                   <br>
+                                   {{ kocwpop03.course_title }}
+                                   <br>
+                                   ㅤ
+                               </p>
+                           </a>
+                        </ul>
+                    </li>
+                </div>
 
-                   <a href="{{ kocwpop02.course_url }}">
-                       <img src="{% static 'image/test01.jpg' %}" width="250px" height="auto">
-                       <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'";>
-                           <br>
-                           {{ kocwpop02.course_title }}
-                           <br>
-                           ㅤ
-                       </p>
-                   </a>
 
-                   <a href="{{ kocwpop03.course_url }}">
-                       <img src="{% static 'image/test01.jpg' %}" width="250px" height="auto">
-                       <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'";>
-                           <br>
-                           {{ kocwpop03.course_title }}
-                           <br>
-                           ㅤ
-                       </p>
-                   </a>
-               </li>
-           </div>
+                <div class="edwith_pop">
+                   <span class="popular" style="font-size: 27px; color: black; font-family: 'IBM Plex Sans KR'; marker: hidden;">
+                       <br>
+                       ㅤ
+                       <br>
+                   </span>
 
-            <div class="edwith_pop">
-               <span class="popular" style="font-size: 27px; color: black; font-family: 'IBM Plex Sans KR'";>
-                   <br>
-                   ㅤ
-                   <br>
-               </span>
+                   <li>
+                       <ul>
+                           <a href="{{ edwithpop01.href }}">
+                               <img src="{% static 'image/test03.png' %}" width="40px" height="auto" >
+                               <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'; ">
+                                   <br>
+                                   [TOP 1]
+                                   <br>
+                                   {{ edwithpop01.title }}
+                                   <br>
+                                   ㅤ
+                               </p>
+                           </a>
+                       </ul>
+                   </li>
 
-               <li>
-                   <a href="{{ edwithpop01.href }}">
-                       <img src="{% static 'image/test01.jpg' %}" width="250px" height="auto">
-                       <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'";>
-                           <br>
-                           {{ edwithpop01.title }}
-                           <br>
-                           ㅤ
-                       </p>
-                   </a>
+                    <li>
+                       <a href="{{ edwithpop02.href }}">
+                           <img src="{% static 'image/test03.png' %}" width="40px" height="auto" >
+                           <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'; ">
+                               <br>
+                               [TOP 2]
+                               <br>
+                               {{ edwithpop02.title }}
+                               <br>
+                               ㅤ
+                           </p>
+                       </a>
+                    </li>
 
-                   <a href="{{ edwithpop02.href }}">
-                       <img src="{% static 'image/test01.jpg' %}" width="250px" height="auto">
-                       <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'";>
-                           <br>
-                           {{ edwithpop02.title }}
-                           <br>
-                           ㅤ
-                       </p>
-                   </a>
+                    <li>
+                       <a href="{{ edwithpop03.href }}">
+                           <img src="{% static 'image/test03.png' %}" width="40px" height="auto" >
+                           <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR';">
+                               <br>
+                               [TOP 3]
+                               <br>
+                               {{ edwithpop03.title }}
+                               <br>
+                               ㅤ
+                           </p>
+                       </a>
+                   </li>
+               </div>
 
-                   <a href="{{ edwithpop03.href }}">
-                       <img src="{% static 'image/test01.jpg' %}" width="250px" height="auto">
-                       <p style="font-size: 15px; color: black; font-family: 'IBM Plex Sans KR'";>
-                           <br>
-                           {{ edwithpop03.title }}
-                           <br>
-                           ㅤ
-                       </p>
-                   </a>
-               </li>
-           </div>
-
-        </div>
+            </div>
+        </ul>
     </div>
 
-{#        <div>#}
-{#            <ul class="course_list">#}
-{#                {% for MoocAll in MoocAllList%}#}
-{#                <li>#}
-{#                    <a href="http://www.kmooc.kr/courses/{{ MoocAll.course_id }}/about" target="_blank">#}
-{#                    {{ MoocAll.name }} / {{ MoocAll.teachers }} / {{ MoocAll.org_name }} / 별점 : {{ MoocAll.star }}#}
-{#                    </a>#}
-{#                </li>#}
-{#                 {% endfor %}#}
-{#            </ul>#}
-{#        </div>#}
-{#        <div>#}
-{#        <ul class="course_list">#}
-{#            {% for KocwAll in KocwAllList%}#}
-{#            <li>#}
-{#                <a href="{{ KocwAll.course_url }}" target="_blank">#}
-{#                {{ KocwAll.course_title }} / {{ KocwAll.lecturer }} / {{ KocwAll.provider }} / 조회수 : {{ KocwAll.view_count }}#}
-{#                </a>#}
-{#            </li>#}
-{#            {% endfor %}#}
-{#        </ul>#}
-{#        </div>#}
-{##}
-{#         <div>#}
-{#           <ul class="course_list">#}
-{#             {% for EdwithAll in EdwithAllList %}#}
-{#               <li>#}
-{#                <a href="{{ EdwithAll.href }}" >#}
-{#                {{ EdwithAll.title }} / {{ EdwithAll.lecturer }} / {{ EdwithAll.org }} / 운영기간 : {{ EdwithAll.date }} / 수강생수 : {{ EdwithAll.student_num }}#}
-{#                </a>#}
-{#                </li>#}
-{#            {% endfor %}#}
-{#            </ul>#}
-{#        </div>#}
+    {#        <div>#}
+    {#            <ul class="course_list">#}
+    {#                {% for MoocAll in MoocAllList%}#}
+    {#                <li>#}
+    {#                    <a href="http://www.kmooc.kr/courses/{{ MoocAll.course_id }}/about" target="_blank">#}
+    {#                    {{ MoocAll.name }} / {{ MoocAll.teachers }} / {{ MoocAll.org_name }} / 별점 : {{ MoocAll.star }}#}
+    {#                    </a>#}
+    {#                </li>#}
+    {#                 {% endfor %}#}
+    {#            </ul>#}
+    {#        </div>#}
+    {#        <div>#}
+    {#        <ul class="course_list">#}
+    {#            {% for KocwAll in KocwAllList%}#}
+    {#            <li>#}
+    {#                <a href="{{ KocwAll.course_url }}" target="_blank">#}
+    {#                {{ KocwAll.course_title }} / {{ KocwAll.lecturer }} / {{ KocwAll.provider }} / 조회수 : {{ KocwAll.view_count }}#}
+    {#                </a>#}
+    {#            </li>#}
+    {#            {% endfor %}#}
+    {#        </ul>#}
+    {#        </div>#}
+    {##}
+    {#         <div>#}
+    {#           <ul class="course_list">#}
+    {#             {% for EdwithAll in EdwithAllList %}#}
+    {#               <li>#}
+    {#                <a href="{{ EdwithAll.href }}" >#}
+    {#                {{ EdwithAll.title }} / {{ EdwithAll.lecturer }} / {{ EdwithAll.org }} / 운영기간 : {{ EdwithAll.date }} / 수강생수 : {{ EdwithAll.student_num }}#}
+    {#                </a>#}
+    {#                </li>#}
+    {#            {% endfor %}#}
+    {#            </ul>#}
+    {#        </div>#}
 
     <div id="footer" style="display: block;">
         <p id="innerfooter">
