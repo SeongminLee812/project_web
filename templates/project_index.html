@@ -35,13 +35,9 @@
     .pop>.kmooc_pop { position: relative; padding: 100px 75px 50px 100px; overflow: hidden; }
     .pop>.kocw_pop { position: relative; padding: 100px 75px 50px 100px; overflow: hidden; }
     .pop>.edwith_pop { position: relative; padding: 100px 75px 50px 100px; overflow: hidden; }
-    .pop>.kmooc_pop { float: left; width: 300px; solid; }
-    .pop>.kocw_pop { float: left; margin-left; width: 300px; solid; }
-    .pop>.edwith_pop { float: left; margin-left; width: 300px; solid; }
-
-    .pop>ul { text-align: center; }
-
-    ul{list-style:none;}
+    .pop>.kmooc_pop { float: left; width: auto; solid; }
+    .pop>.kocw_pop { float: left; margin-left; width: auto; solid; }
+    .pop>.edwith_pop { float: left; margin-left; width: auto; solid; }
     </style>
 
 
@@ -148,12 +144,14 @@
             </ul>
         </div>
 
+
         <span class="popular" style="font-size: 27px; color: black; font-family: 'IBM Plex Sans KR' marker: hidden";>
             <br>
 
         </span>
 
         <div class="visual" style="display: block;">
+
             <span>
                 <iframe src="{% static 'keyword_visual.html'%}"
                 width="900px"
@@ -162,6 +160,7 @@
                 </iframe>
             </span>
         </div>
+
 
 
         <ul>
@@ -333,44 +332,10 @@
                    </li>
                </div>
 
-            </div>
-        </ul>
+
+        </div>
     </div>
 
-    {#        <div>#}
-    {#            <ul class="course_list">#}
-    {#                {% for MoocAll in MoocAllList%}#}
-    {#                <li>#}
-    {#                    <a href="http://www.kmooc.kr/courses/{{ MoocAll.course_id }}/about" target="_blank">#}
-    {#                    {{ MoocAll.name }} / {{ MoocAll.teachers }} / {{ MoocAll.org_name }} / 별점 : {{ MoocAll.star }}#}
-    {#                    </a>#}
-    {#                </li>#}
-    {#                 {% endfor %}#}
-    {#            </ul>#}
-    {#        </div>#}
-    {#        <div>#}
-    {#        <ul class="course_list">#}
-    {#            {% for KocwAll in KocwAllList%}#}
-    {#            <li>#}
-    {#                <a href="{{ KocwAll.course_url }}" target="_blank">#}
-    {#                {{ KocwAll.course_title }} / {{ KocwAll.lecturer }} / {{ KocwAll.provider }} / 조회수 : {{ KocwAll.view_count }}#}
-    {#                </a>#}
-    {#            </li>#}
-    {#            {% endfor %}#}
-    {#        </ul>#}
-    {#        </div>#}
-    {##}
-    {#         <div>#}
-    {#           <ul class="course_list">#}
-    {#             {% for EdwithAll in EdwithAllList %}#}
-    {#               <li>#}
-    {#                <a href="{{ EdwithAll.href }}" >#}
-    {#                {{ EdwithAll.title }} / {{ EdwithAll.lecturer }} / {{ EdwithAll.org }} / 운영기간 : {{ EdwithAll.date }} / 수강생수 : {{ EdwithAll.student_num }}#}
-    {#                </a>#}
-    {#                </li>#}
-    {#            {% endfor %}#}
-    {#            </ul>#}
-    {#        </div>#}
 
     <div id="footer" style="display: block; float:left ">
         <p id="innerfooter">
