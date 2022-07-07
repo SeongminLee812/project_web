@@ -61,7 +61,14 @@ def search(request):
 
         df = pd.DataFrame(list(search_result_kmooc.values()))
         df = df.drop_duplicates(subset='name', keep='first')
+        # K-MOOC star nan -> '-'
+        df = df.fillna('-')
         search_kmooc_dict_list = df.to_dict('records')
+
+        #KOCW popular_score None -> '-'
+        for course in search_result_kocw:
+            if course.popular_score is None:
+                course.popular_score = '-'
 
 
     return render(request, 'search.html', {'searchResultKmooc': search_kmooc_dict_list,
