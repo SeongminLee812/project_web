@@ -17,14 +17,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=IBM+Plex+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
-    .body { width: 100%; height: 100%; text-align: center; display: block; }
     .main_con>ul { display: inline-block; width: 100%; }
-    .main_con>ul.site>li { width: 33.33%; }
 
-    .main_con>ul>li { position: relative; display: table-cell; }
-    .main_con>ul>.kmooc>li>a { position: relative; text-align: center; display: block; padding: 50px 0 30px 100px; height: 400px overflow: hidden; }
-    .main_con>ul>.kocw>li>a { position: relative; text-align: center; display: block; padding: 50px 0 30px 30px; height: 400px overflow: hidden; }
-    .main_con>ul>.edwith>li>a { position: relative; text-align: center; display: block; padding: 50px 30px 30px 30px; height: 400px overflow: hidden; }
+    .main_con>ul>.kmooc>li>a { text-align: center; display: block; padding: 50px 0 30px 100px; height: 400px overflow: hidden; }
+    .main_con>ul>.kocw>li>a { txt-align: center; display: block; padding: 50px 0 30px 30px; height: 400px overflow: hidden; }
+    .main_con>ul>.edwith>li>a { text-align: center; display: block; padding: 50px 30px 30px 30px; height: 400px overflow: hidden; }
 
     a { text-decoration: none; color: black; }
     .kmooc { float: left; width: auto; solid; }
@@ -79,10 +76,9 @@
         </div>
     </div>
 
-    <div class="body">
-        <div class="main_con">
-            <ul class="site">
-
+    <div id="body">
+        <div class="main_con" style="display: inline-block">
+            <ul class="site" style="list-style: none">
                 <div class="kmooc">
 	                <li>
 		                <a href="http://www.kmooc.kr/">
@@ -145,7 +141,7 @@
         </div>
 
 
-        <span class="popular" style="font-size: 27px; color: black; font-family: 'IBM Plex Sans KR' marker: hidden";>
+        <span class="popular" style="font-size: 27px; color: black; font-family: 'IBM Plex Sans KR';">
             <br>
 
         </span>
@@ -153,7 +149,7 @@
         <div class="visual" style="display: block;">
 
             <span>
-                <iframe src="{% static 'keyword_visual.html'%}"
+                <iframe src="{% static 'keyword_visual01.html'%}"
                 width="900px"
                 height="450px"
                 frameborder=0>
@@ -161,12 +157,10 @@
             </span>
         </div>
 
-
-
-        <ul>
-            <div class="pop" style="display: block;">
+        <ul style="list-style: none">
+            <div class="pop" style="display: inline-block; ">
                <div class="kmooc_pop">
-                   <span class="popular" style="font-size: 27px; color: black; font-family: 'IBM Plex Sans KR' marker: hidden";>
+                   <span class="popular" style="font-size: 27px; color: black; font-family: 'IBM Plex Sans KR'";>
                        <br>
                        ㅤ
                        <br>
@@ -220,7 +214,7 @@
                </div>
 
                 <div class="kocw_pop" style="display: block">
-                   <span class="popular" style="font-size: 27px; color: black; font-family: 'IBM Plex Sans KR'; marker: hidden";>
+                   <span class="popular" style="font-size: 27px; color: black; font-family: 'IBM Plex Sans KR'; ";>
                        <b>인기 강좌</b>
                        <br>
                        ㅤ
@@ -279,7 +273,7 @@
 
 
                 <div class="edwith_pop">
-                   <span class="popular" style="font-size: 27px; color: black; font-family: 'IBM Plex Sans KR'; marker: hidden;">
+                   <span class="popular" style="font-size: 27px; color: black; font-family: 'IBM Plex Sans KR';">
                        <br>
                        ㅤ
                        <br>
@@ -331,13 +325,12 @@
                        </a>
                    </li>
                </div>
-
-
-        </div>
+            </div>
+        </ul>
     </div>
 
 
-    <div id="footer" style="display: block; float:left ">
+    <div id="footer" style="display: block; ">
         <p id="innerfooter">
             <br>
             <b>About Us</b><br>
