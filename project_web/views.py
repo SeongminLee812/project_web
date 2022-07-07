@@ -22,12 +22,7 @@ def index(request):
     for i in range(3):
         not_dup_course_list.append(df.iloc[i])
     course_kmooc = not_dup_course_list
-    course_kocw = KocwAllList.objects.all().order_by('-view_count')[:3]
-    course_edwith = EdwithAllList.objects.all().order_by('-like_num')[:3]
-    return render(request, 'project_index.html', {'moocpop01': course_kmooc[0], 'moocpop02': course_kmooc[1], 'moocpop03': course_kmooc[2],
-                                                  'kocwpop01': course_kocw[0], 'kocwpop02': course_kocw[1], 'kocwpop03': course_kocw[2],
-                                                  'edwithpop01': course_edwith[0],'edwithpop02': course_edwith[1], 'edwithpop03': course_edwith[2],
-                                                  })
+    return render(request, 'project_index.html', {'MoocAllList':course_kmooc})
 
 # 테스트
 def test(request):
